@@ -31,6 +31,17 @@
     # Optionally, allow all access from your IP Address
     sudo ufw allow from your_ip_address
     ```
+- (Optional) Install [`mosh`](https://mosh.org/)
+    ```shell
+    # Update your sources, if necessary
+    sudo apt update
+
+    # Install mosh
+    sudo apt install mosh
+
+    # Open ports in firewall
+    sudo ufw allow mosh
+    ```
 
 ## Pi-Hole
 
