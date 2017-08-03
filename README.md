@@ -40,7 +40,7 @@
     # Optionally, allow all access from your IP Address
     sudo ufw allow from your_ip_address
     ```
-- [Open ports for Secure FTP][sftp]
+- Open ports for Secure FTP
    ```shell
    # Open ports for secure FTP
     sudo ufw allow sftp
@@ -90,7 +90,7 @@
 
 ## Notes
 
-[sftp]: SFTP ports are opened so that your `.ovpn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
+- SFTP ports are opened so that your `.ovpn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
 
 ## Sources
 
