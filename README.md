@@ -1,7 +1,35 @@
 Digital Ocean
 =============
 
-Do Stuff
+- Create a droplet using Ubuntu 16.04
+- Log in as root
+    ```
+    ssh root@your_server_ip
+    ```
+- Create new user `pi`
+    ```
+    adduser pi
+    ```
+- Grant root privileges to `pi`
+    ```
+    usermod -aG sudo pi
+    ```
+- Set up firewall with [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
+    ```
+    # Apply basic defaults
+    sudo ufw default deny incoming
+    sudo ufw default allow outgoing
+
+    # Open ports for ssh/OpenSSh
+    sudo ufw allow ssh
+    sudo ufw allow OpenSSH
+
+    # Open ports for secure FTP
+    sudo ufw allow sftp
+
+    # Optionally, allow all access from your IP Address
+    sudo ufw allow from your_ip_address
+    ```
 
 Pi-Hole
 =======
@@ -17,4 +45,6 @@ Sources
 =======
 - https://github.com/pi-hole/pi-hole
 - https://github.com/pivpn/pivpn
+- https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
+- https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29
 - https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt
