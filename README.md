@@ -5,18 +5,18 @@
 ## Digital Ocean
 
 - Create a droplet
-    - Pick Ubuntu 16.04 x64 as your image
-        - You may pick another image, but this guide assumes you are using Ubuntu
-    - Pick `$5/mo` as your size
-    - Pick your datacenter region
-        - Pick a region that is as geographically close to you as possible
-    - Select additional options
-        - Check **IPv6** so that ads served on IPv6 can be blocked
-        - (Optional) Check **Monitioring** to enable DigitalOcean's enhanced monitoring
-    - This guide skips adding or using SSH keys for now
-    - Choose a hostname
-        - E.g., `nledford-pihole`
-    - Click the **Create** button
+  - Pick Ubuntu 16.04 x64 as your image
+    - You may pick another image, but this guide assumes you are using Ubuntu
+  - Pick `$5/mo` as your size
+  - Pick your datacenter region
+      - Pick a region that is as geographically close to you as possible
+  - Select additional options
+      - Check **IPv6** so that ads served on IPv6 can be blocked
+      - (Optional) Check **Monitioring** to enable DigitalOcean's enhanced monitoring
+  - This guide skips adding or using SSH keys for now
+  - Choose a hostname
+      - E.g., `nledford-pihole`
+  - Click the **Create** button
 - Log in as root
     ```shell
     ssh root@your_server_ip
@@ -59,7 +59,7 @@
 
 ### Notes
 
-- SFTP ports are opened so that your `.opvn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed
+- SFTP ports are opened so that your `.opvn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
 
 ## Pi-Hole
 
@@ -67,9 +67,8 @@
     ```shell
     curl -sSL https://install.pi-hole.net | bash
     ```
-- On a Raspberry Pi, we would be asked to set a static IP address, but since we are using a VPS a static IP has already been set for us.
-- When asked about which protocols to use for blocking ads, select both **IPv4** and **IPv6**, even if you cannot use IPv6 yet.
-
+- On a Raspberry Pi, we would be asked to set a static IP address, but since we are using a VPS a static IP has already been set for us
+- When asked about which protocols to use for blocking ads, select both **IPv4** and **IPv6**, even if you cannot use IPv6 yet
 
 ## PiVPN
 
