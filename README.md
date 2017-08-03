@@ -43,6 +43,10 @@
     sudo ufw allow mosh
     ```
 
+### Notes
+
+- SFTP ports are opened so that your `.opvn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed
+
 ## Pi-Hole
 
 TODO
