@@ -59,7 +59,7 @@
 
 ### Notes
 
-- SFTP ports are opened so that your `.opvn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
+- SFTP ports are opened so that your `.ovpn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
 
 ## Pi-Hole
 
@@ -72,7 +72,31 @@
 
 ## PiVPN
 
-TODO
+- Run the offical [PiVPN Installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
+  ```shell
+  curl -L https://install.pivpn.io | bash
+  ```
+- On a Raspberry Pi, we would be asked to select a network interface, but since we are on a VPS the only available interface is `eth0` and that is automatically selected for us
+- The static IP address is also automatically selected for us
+- When asked to choose a local user to hold your `ovpn` configurations, select the user `pi`
+- When asked about enabling Unattended Upgrades, pick yes
+- When asked to select the protocol, pick `UDP`
+- When asked to select the port, either accept the default `1194` or enter a random port such as `11948`
+- When asked to set the size of your encryption key, select `2048`
+  - Generating the encryption key will take a few minutes
+- When asked to select a Public IP or DNS, select your server's IP address
+- When asked to select a DNS provider, either accept Google as the default (`8.8.8.8`, `8.8.4.4`) or select custom and enter your preferred DNS providers
+- Allow the installer to reboot your VPS
+- Create an OpenVPN profile
+    ```shell
+    # Create ovpn profile with a password
+    pivpn add
+
+    # create ovpn profile WITHOUT a password
+    pivpn add -nopass
+    ```
+- TODO add instructions on how to retrieve `.ovpn` profile from VPS using FTP application
+- TODO add instructions on how to use `.ovpn` profile with OpenVPN clients
 
 ## Sources
 
