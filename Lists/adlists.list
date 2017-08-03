@@ -3,7 +3,6 @@ https://adaway.org/hosts.txt
 https://adblock.mahakala.is
 https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt
 https://hosts-file.net/ad_servers.txt
-https://hosts-file.net/ad_servers.txt
 https://hosts-file.net/emd.txt
 https://hosts-file.net/exp.txt
 https://hosts-file.net/grm.txt
@@ -28,7 +27,6 @@ https://raw.githubusercontent.com/quidsup/notrack/master/malicious-sites.txt
 https://raw.githubusercontent.com/quidsup/notrack/master/trackers.txt
 https://reddestdream.github.io/Projects/MinimalHosts/etc/MinimalHostsBlocker/minimalhosts
 https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
-https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
 https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt
 https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
 https://v.firebog.net/hosts/AdguardDNS.txt
@@ -43,7 +41,5 @@ https://v.firebog.net/hosts/Prigent-Phishing.txt
 https://v.firebog.net/hosts/Shalla-mal.txt
 https://v.firebog.net/hosts/static/SamsungSmart.txt
 https://v.firebog.net/hosts/static/w3kbl.txt
-https://v.firebog.net/hosts/static/w3kbl.txt
 https://www.malwaredomainlist.com/hostslist/hosts.txt
-https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
 https://zeustracker.abuse.ch/blocklist.php?download=domainblocklist
