@@ -34,11 +34,11 @@
 
 ## Pi-Hole
 
-Do More Stuff
+TODO
 
 ## PiVPN
 
-Do Final Stuff
+TODO
 
 ## Sources
 - https://github.com/pi-hole/pi-hole
