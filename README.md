@@ -1,5 +1,6 @@
-Digital Ocean
-=============
+# Installing Pi-Hole and PiVPN on a Digital Ocean VPS
+
+## Digital Ocean
 
 - Create a droplet using Ubuntu 16.04
 - Log in as root
@@ -31,18 +32,15 @@ Digital Ocean
     sudo ufw allow from your_ip_address
     ```
 
-Pi-Hole
-=======
+## Pi-Hole
 
 Do More Stuff
 
-PiVPN
-=====
+## PiVPN
 
 Do Final Stuff
 
-Sources
-=======
+## Sources
 - https://github.com/pi-hole/pi-hole
 - https://github.com/pivpn/pivpn
 - https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
