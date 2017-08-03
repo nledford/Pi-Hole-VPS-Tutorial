@@ -114,6 +114,4 @@ widget-cdn.rpxnow.com
 s.marketwatch.com
 hostsfile.mine.nu
 adblock.mahakala.is
-drtuber.com
 cdnjs.cloudflare.com
-spankbang.com
