@@ -105,3 +105,10 @@
 
 - [The Big Blocklist Collection](https://wally3k.github.io/)
 - [Pi-Hole: Commonly Whitelisted Domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212)
+
+### Other Links To Sort
+
+- <https://www.reddit.com/r/raspberry_pi/comments/4cqf1t/need_help_with_getting_pihole_and_openvpn_working/>
+- <https://github.com/pivpn/pivpn/wiki/FAQ#installing-with-pi-hole>
+- <https://www.reddit.com/r/raspberry_pi/comments/5g8w3w/how_to_pair_pi_hole_and_openvpn_to_use_with/das3drs/?>
+- <https://github.com/pivpn/pivpn/issues/308#issuecomment-315680658>
