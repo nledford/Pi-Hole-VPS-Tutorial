@@ -2,8 +2,6 @@
 
 **This guide is still a work-in-progress. Many critical steps are missing. I would not recommend following the guide as-is right now.**
 
-## Digital Ocean
-
 - Create a droplet
   - Pick Ubuntu 16.04 x64 as your image
     - You may pick another image, but this guide assumes you are using Ubuntu
@@ -38,10 +36,7 @@
     # Open ports for ssh/OpenSSh
     sudo ufw allow ssh
     sudo ufw allow OpenSSH
-
-    # Open ports for secure FTP
-    sudo ufw allow sftp
-
+    
     # Optionally, allow all access from your IP Address
     sudo ufw allow from your_ip_address
     ```
@@ -56,22 +51,12 @@
     # Open ports in firewall
     sudo ufw allow mosh
     ```
-
-### Notes
-
-- SFTP ports are opened so that your `.ovpn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
-
-## Pi-Hole
-
 - Run the offical [Pi-Hole Installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
     ```shell
     curl -sSL https://install.pi-hole.net | bash
     ```
 - On a Raspberry Pi, we would be asked to set a static IP address, but since we are using a VPS a static IP has already been set for us
 - When asked about which protocols to use for blocking ads, select both **IPv4** and **IPv6**, even if you cannot use IPv6 yet
-
-## PiVPN
-
 - Run the offical [PiVPN Installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
   ```shell
   curl -L https://install.pivpn.io | bash
@@ -97,6 +82,10 @@
     ```
 - TODO add instructions on how to retrieve `.ovpn` profile from VPS using FTP application
 - TODO add instructions on how to use `.ovpn` profile with OpenVPN clients
+
+## Notes
+
+- SFTP ports are opened so that your `.ovpn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
 
 ## Sources
 
