@@ -3,19 +3,19 @@ Digital Ocean
 
 - Create a droplet using Ubuntu 16.04
 - Log in as root
-    ```
+    ```shell
     ssh root@your_server_ip
     ```
 - Create new user `pi`
-    ```
+    ```shell
     adduser pi
     ```
 - Grant root privileges to `pi`
-    ```
+    ```shell
     usermod -aG sudo pi
     ```
 - Set up firewall with [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
-    ```
+    ```shell
     # Apply basic defaults
     sudo ufw default deny incoming
     sudo ufw default allow outgoing
