@@ -160,6 +160,10 @@ Once you have completed the Pi-Hole installation script, you should change the p
 pihole -a -p myawesomepassphrase
 ```
 
+## (Optional) Configure Pi-Hole
+
+Pi-Hole allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., blocking Netflix or Facebook). Pi-Hole developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own Pi-Hole. Be sure to also check out [commonly whitelisted domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212) to reduce the chances of false positives occurring.
+
 ## Install PiVPN
 
 - Run the offical [PiVPN Installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
@@ -209,14 +213,11 @@ pihole -a -p myawesomepassphrase
 - [Debian Wiki: Uncomplicated Firewall](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
 - [Mosh](https://mosh.org/)
 - [Static vs. dynamic IP addresses](https://support.google.com/fiber/answer/3547208?hl=en)
+- [The Big Blocklist Collection](https://wally3k.github.io/)
+- [Pi-Hole: Commonly Whitelisted Domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212)
 - <https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04>
 - <https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt>
 - <http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/>
-
-## Suggested Blocklists
-
-- [The Big Blocklist Collection](https://wally3k.github.io/)
-- [Pi-Hole: Commonly Whitelisted Domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212)
 
 ### Other Links To Sort
 
