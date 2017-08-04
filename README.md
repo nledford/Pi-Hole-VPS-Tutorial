@@ -147,6 +147,9 @@ We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%2
     ```
 - On a Raspberry Pi, we would be asked to set a static IP address, but since we are using a VPS a static IP has already been set for us
 - When asked about which protocols to use for blocking ads, select both **IPv4** and **IPv6**, even if you cannot use IPv6 yet
+
+## Install PiVPN
+
 - Run the offical [PiVPN Installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
   ```shell
   curl -L https://install.pivpn.io | bash
