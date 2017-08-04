@@ -13,6 +13,10 @@ After completing this tutorial, you will have:
 - A Pi-Hole accessible from anywhere
 - A VPN that will provide an encrypted connection when using public Wi-Fi
 
+## Prerequisites
+
+In order to follow this tutorial you will need to have a DigitalOcean account. If you do not have one, you can [sign up here](https://cloud.digitalocean.com/registrations/new).
+
 - Create a droplet
   - Pick Ubuntu 16.04 x64 as your image
     - You may pick another image, but this guide assumes you are using Ubuntu
