@@ -2,6 +2,17 @@
 
 **This guide is still a work-in-progress. Many critical steps are missing. I would not recommend following the guide as-is right now.**
 
+## Introduction
+
+The purpose of this guide is to document the steps I took to create a droplet on [DigitalOcean](https://www.digitalocean.com/) with [Pi-Hole](https://pi-hole.net/) and [PiVPN](http://www.pivpn.io/) installed. The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
+
+Almost every tutorial I found was focused on installing Pi-Hole and PiVPN on a local Raspberry Pi instead of a VPS. The steps are mostly the same but there are some extra steps involved in securing the VPS to deny access from bad actors.
+
+After completing this tutorial, you will have:
+
+- A Pi-Hole accessible from anywhere
+- A VPN that will provide an encrypted connection when using public Wi-Fi
+
 - Create a droplet
   - Pick Ubuntu 16.04 x64 as your image
     - You may pick another image, but this guide assumes you are using Ubuntu
