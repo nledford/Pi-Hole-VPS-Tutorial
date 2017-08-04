@@ -143,12 +143,22 @@ We will be opening ports for secure FTP so that `.ovpn` files needed for connect
 
 ## Install Pi-Hole
 
+Now that our server has been set up and is secure, we will now install the Pi-Hole software. The installation is fairly simple and requires a small amount of configuration on our part.
+
+Please note that on a Raspberry Pi we would be asked to set a [static IP address](https://support.google.com/fiber/answer/3547208?hl=en). This is important because we do not want the IP address of a DNS server to be constantly changing. However, since we are using a VPS, the static IP address has already been set for us. The networking interface will also be automatically selected as well since only one, `eth0`, will be available to us at the time of installation.
+
 - Run the offical [Pi-Hole Installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
     ```shell
     curl -sSL https://install.pi-hole.net | bash
     ```
-- On a Raspberry Pi, we would be asked to set a static IP address, but since we are using a VPS a static IP has already been set for us
-- When asked about which protocols to use for blocking ads, select both **IPv4** and **IPv6**, even if you cannot use IPv6 yet
+- When asked about which protocols to use for blocking ads, select both `IPv4` and `IPv6`, even if you cannot use `IPv6` yet on your home network. The justification is that more ads are now being served via `IPv6` and we want to ensure all ads are blocked
+- On the very last screen, you will be presented various information about your new Pi-Hole installation. Your Pi-Hole's IP address should match your server's IP address.
+
+Once you have completed the Pi-Hole installation script, you should change the passphrase to the admin panel:
+
+```shell
+pihole -a -p myawesomepassphrase
+```
 
 ## Install PiVPN
 
@@ -198,6 +208,7 @@ We will be opening ports for secure FTP so that `.ovpn` files needed for connect
 - [Using public keys for SSH authentication](https://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html)
 - [Debian Wiki: Uncomplicated Firewall](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
 - [Mosh](https://mosh.org/)
+- [Static vs. dynamic IP addresses](https://support.google.com/fiber/answer/3547208?hl=en)
 - <https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04>
 - <https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt>
 - <http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/>
