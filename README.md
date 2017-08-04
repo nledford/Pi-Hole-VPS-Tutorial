@@ -120,6 +120,8 @@ sudo apt install mosh
 
 We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the server. Specifically, we want to ensure that only ports needed for SSH, Pi-Hole, and PiVPN are open. Additional ports can be opened depending on your specific needs.
 
+We will be opening ports for secure FTP so that `.ovpn` files needed for connecting to our VPN later can be retrieved via a FTP application such as Filezilla or Transmit.
+
 - Set up `ufw`
     ```shell
     # Apply basic defaults
@@ -177,10 +179,6 @@ We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%2
 - TODO add instructions on how to use `.ovpn` profile with OpenVPN clients
 - Make final adjustments to files on your VPS
 - TODO code from Step 8: Adjust the Server Networking Configuration
-
-## Notes
-
-- SFTP ports are opened so that your `.ovpn` file(s) can be retrieved later via an FTP program such as Filezilla or Transmit once PiVPN is installed.
 
 ## Sources
 
