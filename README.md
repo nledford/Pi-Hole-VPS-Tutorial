@@ -187,23 +187,130 @@ curl -L https://install.pivpn.io | bash
 
 Once the installer is finished, allow it to reboot your VPS
 
-## OpenVPN
+## Configure **Pi-Hole** and **PiVPN**
 
-- Create an OpenVPN profile
-    ```shell
-    # Create ovpn profile with a password
-    pivpn add
+Now that both **Pi-Hole** and **PiVPN** are installed, there are a couple of critical steps we must take before we can start generating `.ovpn` configuration files and connecting to our VPS. Specifically we want to ensure that **PiVPN** uses **Pi-Hole** as it's DNS server and that we can connect using an **OpenVPN** client.
 
-    # create ovpn profile WITHOUT a password
-    pivpn add -nopass
-    ```
-- TODO add instructions on how to retrieve `.ovpn` profile from VPS using FTP application
-- TODO add instructions on how to use `.ovpn` profile with OpenVPN clients
-- Make final adjustments to files on your VPS
+### `dnsmasq`
 
-## TODO section for remaining tweaks
+First we will edit a configuration file for `dnsmasq`, the DNS service that powers **Pi-Hole**
 
-- TODO code from Step 8: Adjust the Server Networking Configuration
+Log into your server as `pi` if you are not logged in already:
+
+```shell
+ssh pi@your_server_ip
+```
+
+Open the `dnsmasq.conf` file:
+
+```shell
+sudo nano /etc/dnsmasq.conf
+```
+
+Find the line containing `listen-address=`. This line may be commented out with a `#`. Uncomment the line if necessary and update it to include your server's IP address and OpenVPN interface's IP Address.
+
+```shell
+listen-address=127.0.0.1, your_server_ip, 10.8.0.1
+```
+
+Save and exit the file, and restart the `dnsmasq` service:
+
+```shell
+sudo service dnsmasq restart
+```
+
+### Network Adjustments
+
+Second we will need to adjust rules in `ufw` to allow **OpenVPN** to correctly route connections. This section covers Step 8 from [**DigitalOcean**'s guide to setting up OpenVPN on a VPS](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04#step-8-adjust-the-server-networking-configuration).
+
+First, we will modify the `sysctl.conf` file to allow IP forwarding:
+
+```shell
+sudo nano /etc/sysctl.conf
+```
+
+Look for the line that contains `net.ipv4.ip_forward`. If there is a `#` character prepended, remove it to uncomment the line. Ensure that it is set to `1` and not `0`.
+
+```shell
+net.ipv4.ip_forward=1
+```
+
+Save and close the file. Then instruct `sysctl` to reload it.
+
+```shell
+sudo sysctl -p
+```
+
+Second, we will modify `ufw` to allow masquerading of client connections. Before we can modify any rules, we need to find the public network interface of our VPS:
+
+```shell
+ip route | grep default
+```
+
+Your public interface will follow the word "`dev`" in the output. For example:
+
+```shell
+default via 203.0.113.1 dev eth0  proto static  metric 600
+```
+
+If your public interface is not `eth0`, make note of what it is. We will be using that interface to modify a `ufw` file that loads rules before regular rules are loaded. We will be adding a rule that will masquerade any traffic comming in from the VPN.
+
+Open the `before.rules` file:
+
+```shell
+sudo nano /etc/ufw/before.rules
+```
+
+Towards the top of `before.rules` add the following text, starting with `# START OPENVPN RULES`:
+
+```text
+#
+# rules.before
+#
+# Rules that should be run before the ufw command line added rules. Custom
+# rules should be added to one of these chains:
+#   ufw-before-input
+#   ufw-before-output
+#   ufw-before-forward
+#
+
+# START OPENVPN RULES
+# NAT table rules
+*nat
+:POSTROUTING ACCEPT [0:0]
+# Allow traffic from OpenVPN client to eth0 (change to the interface you discovered!)
+-A POSTROUTING -s 10.8.0.0/8 -o eth0 -j MASQUERADE
+COMMIT
+# END OPENVPN RULES
+
+```
+
+Save and close the `before.rules`.
+
+Finally, we need to tell `ufw` to allow forward packets by default. Open the `/etc/default/ufw` file:
+
+```shell
+sudo nano /etc/default/ufw
+```
+
+Fine the line containing `DEFAULT_FORWARD_POLICY`. Change the value to `ACCEPT` if necessary:
+
+```text
+DEFAULT_FORWARD_POLICY="ACCEPT"
+```
+
+Save and close `/etc/default/ufw`.
+
+Enter the following commands to restart `ufw` and **OpenVPN**:
+
+```shell
+# Restart ufw
+sudo ufw disable
+sudo ufw enable
+
+# Restart OpenVPN
+sudo service openvpn reload
+```
 
 ## Sources
 
@@ -224,7 +331,7 @@ Once the installer is finished, allow it to reboot your VPS
 - [The Big Blocklist Collection](https://wally3k.github.io/)
 - [Pi-Hole: Commonly Whitelisted Domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212)
 - [OpenVPN](https://openvpn.net/)
-- <https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04>
+- [How To Set Up an OpenVPN Server on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04#step-8-adjust-the-server-networking-configuration)
 - <https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt>
 - <http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/>
 
