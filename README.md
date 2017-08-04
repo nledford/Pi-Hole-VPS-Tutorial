@@ -250,7 +250,7 @@ sudo service dnsmasq restart
 
 Second we will need to adjust rules in `ufw` to allow **OpenVPN** to correctly route connections. This section covers Step 8 from [**DigitalOcean**'s guide to setting up OpenVPN on a VPS](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04#step-8-adjust-the-server-networking-configuration).
 
-First, we will modify the `sysctl.conf` file to allow IP forwarding:
+We will start by modifying the `sysctl.conf` file to allow IP forwarding:
 
 ```shell
 sudo nano /etc/sysctl.conf
@@ -268,7 +268,7 @@ Save and close the file. Then instruct `sysctl` to reload it.
 sudo sysctl -p
 ```
 
-Second, we will modify `ufw` to allow masquerading of client connections. Before we can modify any rules, we need to find the public network interface of our VPS:
+Then we will modify `ufw` to allow masquerading of client connections. Before we can modify any rules, we need to find the public network interface of our VPS:
 
 ```shell
 ip route | grep default
