@@ -372,4 +372,3 @@ TODO should I even add a conclusion?
 - [OpenVPN](https://openvpn.net/)
 - [How To Set Up an OpenVPN Server on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04#step-8-adjust-the-server-networking-configuration)
 - <https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt>
-- <http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/>
