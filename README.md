@@ -139,6 +139,8 @@ We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%2
     sudo ufw allow mosh
     ```
 
+## Install Pi-Hole
+
 - Run the offical [Pi-Hole Installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
     ```shell
     curl -sSL https://install.pi-hole.net | bash
