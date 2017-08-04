@@ -166,12 +166,16 @@ pihole -a -p myawesomepassphrase
 
 ## Install **PiVPN**
 
-- Run the offical [**PiVPN** installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
-  ```shell
-  curl -L https://install.pivpn.io | bash
-  ```
-- On a Raspberry Pi, we would be asked to select a network interface, but since we are on a VPS the only available interface is `eth0` and that is automatically selected for us
-- The static IP address is also automatically selected for us
+Installing **PiVPN** will be just as easy as installing **Pi-Hole**, although there is a bit more configuration required on our part for **PiVPN**. **PiVPN** automatically installs an [**OpenVPN** server](https://openvpn.net/) for us as well as any additional required software. The script will also automatically open ports in `ufw` so that an **OpenVPN** client can communicate with our VPS.
+
+Please note that on a Raspberry Pi, we would be asked to select a network interface, but since we are on a VPS the only available interface is `eth0` and that is automatically selected for us as well as the static IP address.
+
+Start by running the [**PiVPN** installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
+
+```shell
+curl -L https://install.pivpn.io | bash
+```
+
 - When asked to choose a local user to hold your `.ovpn` configuration files, select the user `pi`
 - When asked about enabling `UnattendedUpgrades`, pick yes
 - When asked to select the protocol, pick `UDP`
@@ -218,6 +222,7 @@ pihole -a -p myawesomepassphrase
 - [Static vs. dynamic IP addresses](https://support.google.com/fiber/answer/3547208?hl=en)
 - [The Big Blocklist Collection](https://wally3k.github.io/)
 - [Pi-Hole: Commonly Whitelisted Domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212)
+- [OpenVPN](https://openvpn.net/)
 - <https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04>
 - <https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt>
 - <http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/>
