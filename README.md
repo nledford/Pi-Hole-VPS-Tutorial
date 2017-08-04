@@ -185,7 +185,7 @@ We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%2
 - [PiVPN](https://github.com/pivpn/pivpn)
 - [Digital Ocean: Initial Server Setup with Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
 - [Debian Wiki: Uncomplicated Firewall](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
-- https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04
+- <https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04>
 - <https://itchy.nl/raspberry-pi-3-with-openvpn-pihole-dnscrypt>
 - <http://kamilslab.com/2017/01/22/how-to-turn-your-raspberry-pi-into-a-home-vpn-server-using-pivpn/>
 
