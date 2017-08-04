@@ -162,7 +162,7 @@ pihole -a -p myawesomepassphrase
 
 ## (Optional) Configure Pi-Hole
 
-Pi-Hole allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., blocking Netflix or Facebook). Pi-Hole developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own Pi-Hole. Be sure to also check out [commonly whitelisted domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212) to reduce the chances of false positives occurring.
+Pi-Hole allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., unblocking Netflix or Facebook). Pi-Hole developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own Pi-Hole. Be sure to also check out [commonly whitelisted domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212) to reduce the chances of false positives occurring.
 
 ## Install PiVPN
 
