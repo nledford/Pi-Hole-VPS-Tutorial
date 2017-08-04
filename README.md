@@ -1,4 +1,4 @@
-# Installing Pi-Hole and PiVPN on a Digital Ocean VPS
+# Installing **Pi-Hole** and **PiVPN** on a **DigitalOcean** VPS
 
 **This guide is still a work-in-progress. Many critical steps are missing. I would not recommend following the guide as-is right now.**
 
@@ -6,20 +6,20 @@
 
 The purpose of this guide is to document the steps I took to create a droplet on [DigitalOcean](https://www.digitalocean.com/) with [Pi-Hole](https://pi-hole.net/) and [PiVPN](http://www.pivpn.io/) installed. The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
 
-Almost every tutorial I found was focused on installing Pi-Hole and PiVPN on a local Raspberry Pi instead of a VPS. The steps are mostly the same but there are some extra steps involved in securing the VPS to deny access from bad actors.
+Almost every tutorial I found was focused on installing **Pi-Hole** and **PiVPN** on a local Raspberry Pi instead of a VPS. The steps are mostly the same but there are some extra steps involved in securing the VPS to deny access from bad actors.
 
 After completing this tutorial, you will have:
 
-- A Pi-Hole accessible from anywhere
-- A VPN that will provide an encrypted connection when using public Wi-Fi
+- A **Pi-Hole** accessible from anywhere
+- A VPN that will provide an encrypted connection when using public Wi-Fi, via **PiVPN**
 
 ## Prerequisites
 
-In order to follow this tutorial you will need to have a DigitalOcean account. If you do not have one, you can [sign up here](https://cloud.digitalocean.com/registrations/new).
+In order to follow this tutorial you will need to have a **DigitalOcean** account. If you do not have one, you can [sign up here](https://cloud.digitalocean.com/registrations/new).
 
 ## Creating a Droplet
 
-This tutorial will use **Ubuntu 16.04 x64** as the base image. 16.04 is a long-term support release of Ubuntu and supports all of the software we will be installing. You can pick a different Linux distrobution if you wish, but be cautioned that the software may not work without some extra effort on your part.
+This tutorial will use **Ubuntu 16.04 x64** as the base image. _16.04_ is a long-term support release of Ubuntu and supports all of the software we will be installing. You can pick a different Linux distrobution if you wish, but be cautioned that the software may not work without some extra effort on your part.
 
 - Go the the [Create Droplet](https://cloud.digitalocean.com/droplets/new) page in your DigitalOcean account
 - Choose an Image
@@ -30,7 +30,7 @@ This tutorial will use **Ubuntu 16.04 x64** as the base image. 16.04 is a long-t
   - I recommend selecting a region that is closest to you
 - Select Additional Options
   - Select `IPv6` so that we can block ads that are served on that protocol
-  - (Optional) Select `Monitoring` for additional monitoring features provided by DigitalOcean
+  - (Optional) Select `Monitoring` for additional monitoring features provided by **DigitalOcean**
 - Add your SSH keys
   - Do not add any SSH keys yet. We will add them later.
 - Finalize and create
@@ -38,21 +38,21 @@ This tutorial will use **Ubuntu 16.04 x64** as the base image. 16.04 is a long-t
   - Choose a hostname, e.g. `nledford-pihole`
   - Click the **Create** button
 
-DigitalOcean will start the process of creating the droplet for you and will send you an email containing the root password for your droplet. We will need that root password before we can log into and configure our new droplet. The root password will be changed after your first login.
+**DigitalOcean** will start the process of creating the Droplet for you and will send you an email containing the root password for your Droplet. We will need that root passphrase before we can log into and configure our new droplet. The root password will be changed after your first login.
 
 ## Initial Server Setup
 
-Once you have created your droplet, you should be redirected to the [Droplets page](https://cloud.digitalocean.com/droplets) that lists all of your Droplets and Volumes. You will need the IP address and your root password to log into your new droplet.  We will be using `ssh` to remotely log into the Droplet and configure it. If you are on a Unix-based operating system, it should already be installed. If you are Windows, you will need to install [PuTTY](http://www.putty.org/).
+Once you have created your droplet, you should be redirected to the [Droplets page](https://cloud.digitalocean.com/droplets) that lists all of your Droplets and Volumes. You will need the IP address and your root passphrase to log into your new droplet.  We will be using `ssh` to remotely log into the Droplet and configure it. If you are on a Unix-based operating system, it should already be installed. If you are Windows, you will need to install [PuTTY](http://www.putty.org/).
 
-This section essentially covers all of the steps from [DigitalOcean's tutorial for setting up Ubuntu](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04), but with a few differences. We will be creating a specific user, `pi`, that will use for logging into the VPS and handling the `.ovpn` files generated by PiVPN.
+This section essentially covers all of the steps from [**DigitalOcean**'s tutorial for setting up Ubuntu](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04), but with a few differences. We will be creating a specific user, `pi`, that will use for logging into our Droplet and handling the `.ovpn` files generated by **PiVPN**.
 
-### Root Login
+### `root` Login
 
-- When you have your server's IP address and root password, log into the server as the `root` user
+- When you have your server's IP address and root passphrase, log into the server as the `root` user
     ```shell
     ssh root@your_server_ip
     ```
-- You will be asked to create a new password. Although we will be disabling password authentication, be sure to create a secure password anyway.
+- You will be asked to create a new passphrase. Although we will be disabling password authentication, be sure to create or [generate](http://passwordsgenerator.net/) a secure passphrase anyway.
 - Create new user `pi`
     ```shell
     adduser pi
@@ -82,7 +82,7 @@ This section essentially covers all of the steps from [DigitalOcean's tutorial f
   - If you opted to add SSH during the droplet creation process anyway, this method will not work.
 - You should repeat this steps for each device you want to access the server, including desktops, laptops, tablets, and mobile phones.
 
-Once you have added SSH keys from all of your devices, we can disable password authentication.
+Once you have added SSH keys from all of your devices, we can disable passphrase authentication.
 
 - Log into your server as `root`, if you are not already logged in
     ```shell
@@ -104,7 +104,7 @@ Once you have added SSH keys from all of your devices, we can disable password a
     ssh pi@your_server_ip
     ```
 
-### (Optional) Install Mosh
+### (Optional) Install **Mosh**
 
 [Mosh](https://mosh.org/), or mobile shell, is a remote termina application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
 
@@ -116,11 +116,11 @@ sudo apt update
 sudo apt install mosh
 ```
 
-### Set up `ufw`
+### Set up **`ufw`**
 
-We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the server. Specifically, we want to ensure that only ports needed for SSH, Pi-Hole, and PiVPN are open. Additional ports can be opened depending on your specific needs.
+We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the server. Specifically, we want to ensure that only ports needed for SSH, **Pi-Hole**, and **PiVPN** are open. Additional ports can be opened depending on your specific needs.
 
-We will be opening ports for secure FTP so that `.ovpn` files needed for connecting to our VPN later can be retrieved via a FTP application such as Filezilla or Transmit.
+We will be opening ports for secure FTP so that `.ovpn` files needed for connecting to our VPN later can be retrieved via a FTP application such as [Filezilla](https://filezilla-project.org/) or [Transmit](https://panic.com/transmit/).
 
 - Set up `ufw`
     ```shell
@@ -141,39 +141,39 @@ We will be opening ports for secure FTP so that `.ovpn` files needed for connect
     sudo ufw allow mosh
     ```
 
-## Install Pi-Hole
+## Install **Pi-Hole**
 
-Now that our server has been set up and is secure, we will now install the Pi-Hole software. The installation is fairly simple and requires a small amount of configuration on our part.
+Now that our server has been set up and is secure, we will now install the **Pi-Hole** software. The installation is fairly simple and requires a small amount of configuration on our part.
 
 Please note that on a Raspberry Pi we would be asked to set a [static IP address](https://support.google.com/fiber/answer/3547208?hl=en). This is important because we do not want the IP address of a DNS server to be constantly changing. However, since we are using a VPS, the static IP address has already been set for us. The networking interface will also be automatically selected as well since only one, `eth0`, will be available to us at the time of installation.
 
-- Run the offical [Pi-Hole Installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
+- Run the offical [**Pi-Hole** installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
     ```shell
     curl -sSL https://install.pi-hole.net | bash
     ```
 - When asked about which protocols to use for blocking ads, select both `IPv4` and `IPv6`, even if you cannot use `IPv6` yet on your home network. The justification is that more ads are now being served via `IPv6` and we want to ensure all ads are blocked
-- On the very last screen, you will be presented various information about your new Pi-Hole installation. Your Pi-Hole's IP address should match your server's IP address.
+- On the very last screen, you will be presented various information about your new **Pi-Hole** installation. Your **Pi-Hole**'s IP address should match your server's IP address.
 
-Once you have completed the Pi-Hole installation script, you should change the passphrase to the admin panel:
+Once you have completed the **Pi-Hole** installation script, you should change the passphrase to the admin panel:
 
 ```shell
 pihole -a -p myawesomepassphrase
 ```
 
-## (Optional) Configure Pi-Hole
+## (Optional) Configure **Pi-Hole**
 
-Pi-Hole allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., unblocking Netflix or Facebook). Pi-Hole developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own Pi-Hole. Be sure to also check out [commonly whitelisted domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212) to reduce the chances of false positives occurring.
+**Pi-Hole** allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., unblocking Netflix or Facebook). **Pi-Hole** developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own blocklists. Be sure to also check out [commonly whitelisted domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212) to reduce the chances of false positives occurring.
 
-## Install PiVPN
+## Install **PiVPN**
 
-- Run the offical [PiVPN Installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
+- Run the offical [**PiVPN** installer](https://github.com/pivpn/pivpn/blob/master/auto_install/install.sh)
   ```shell
   curl -L https://install.pivpn.io | bash
   ```
 - On a Raspberry Pi, we would be asked to select a network interface, but since we are on a VPS the only available interface is `eth0` and that is automatically selected for us
 - The static IP address is also automatically selected for us
-- When asked to choose a local user to hold your `ovpn` configurations, select the user `pi`
-- When asked about enabling Unattended Upgrades, pick yes
+- When asked to choose a local user to hold your `.ovpn` configuration files, select the user `pi`
+- When asked about enabling `UnattendedUpgrades`, pick yes
 - When asked to select the protocol, pick `UDP`
 - When asked to select the port, either accept the default `1194` or enter a random port such as `11948`
 - When asked to set the size of your encryption key, select `2048`
@@ -209,9 +209,12 @@ Pi-Hole allows you to customize what websites you want to block and allows to yo
   - [Official Website](http://www.pivpn.io/)
   - [Github](https://github.com/pivpn/pivpn)
 - [Digital Ocean: Initial Server Setup with Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
+- [Secure Password Generator](http://passwordsgenerator.net/)
 - [Using public keys for SSH authentication](https://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html)
-- [Debian Wiki: Uncomplicated Firewall](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
 - [Mosh](https://mosh.org/)
+- [Debian Wiki: Uncomplicated Firewall](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29)
+- [FileZilla](https://filezilla-project.org/)
+- [Transmit](https://panic.com/transmit/)
 - [Static vs. dynamic IP addresses](https://support.google.com/fiber/answer/3547208?hl=en)
 - [The Big Blocklist Collection](https://wally3k.github.io/)
 - [Pi-Hole: Commonly Whitelisted Domains](https://discourse.pi-hole.net/t/commonly-whitelisted-domains/212)
