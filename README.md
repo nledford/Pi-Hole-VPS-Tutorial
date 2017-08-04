@@ -48,61 +48,85 @@ This section essentially covers all of the steps from [**DigitalOcean**'s tutori
 
 ### `root` Login
 
-- When you have your server's IP address and root passphrase, log into the server as the `root` user
-    ```shell
-    ssh root@your_server_ip
-    ```
-- You will be asked to create a new passphrase. Although we will be disabling password authentication, be sure to create or [generate](http://passwordsgenerator.net/) a secure passphrase anyway.
-- Create new user `pi`
-    ```shell
-    adduser pi
-    ```
-- Grant root privileges to `pi`
-    ```shell
-    usermod -aG sudo pi
-    ```
+When you have your server's IP address and root passphrase, log into the server as the `root` user
+
+```shell
+ssh root@your_server_ip
+```
+
+You will be asked to create a new passphrase. Although we will be disabling password authentication, be sure to create or [generate](http://passwordsgenerator.net/) a secure passphrase anyway.
+
+Create new user `pi`
+
+```shell
+adduser pi
+```
+
+Grant root privileges to `pi`
+
+```shell
+usermod -aG sudo pi
+```
 
 ### Public Key Authentication
 
 [Public Key Authentication](https://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html) provides an alternative method of identifying yourselve to a remote server and increases the overall security of your server.
 
-- If you do not already have an SSH key, you will need to create one on your local computer
-    ```shell
-    ssh-keygen
-    ```
-- Save your key in the default file (where `$user` is your user)
-    ```shell
-    Enter file in which to save the key (/Users/$user/.ssh/id_rsa):
-    ```
-- Create a secure passphrase. You will need to enter this passphrase each time you utilize your SSH key
-- Copy the public key from your local machine to your remote server with `ssh-copy-id`
-    ```shell
-    ssh-copy-id pi@your_server_ip
-    ```
-  - If you opted to add SSH during the droplet creation process anyway, this method will not work.
-- You should repeat this steps for each device you want to access the server, including desktops, laptops, tablets, and mobile phones.
+If you do not already have an SSH key, you will need to create one on your local computer
+
+```shell
+ssh-keygen
+```
+
+Save your key in the default file (where `$user` is your user)
+
+```shell
+Enter file in which to save the key (/Users/$user/.ssh/id_rsa):
+```
+
+Create a secure passphrase. You will need to enter this passphrase each time you utilize your SSH key
+
+Copy the public key from your local machine to your remote server with `ssh-copy-id`
+
+```shell
+ssh-copy-id pi@your_server_ip
+```
+
+- If you opted to add SSH during the droplet creation process anyway, this method will not work.
+ 
+You should repeat this steps for each device you want to access the server, including desktops, laptops, tablets, and mobile phones.
+
+#### Disable Passphrase Authentication
 
 Once you have added SSH keys from all of your devices, we can disable passphrase authentication.
 
-- Log into your server as `root`, if you are not already logged in
-    ```shell
-    ssh root@your_server_ip
-    ```
-- Open the SSH daemon configuration file
-    ```shell
-    sudo nano /etc/ssh/ssdh_config
-    ```
+Log into your server as `root`, if you are not already logged in
+
+```shell
+ssh root@your_server_ip
+```
+
+Open the SSH daemon configuration file
+
+```shell
+sudo nano /etc/ssh/ssdh_config
+```
+
 - Find the line containing `PasswordAuthentication` and uncomment it by deleting the preceeding `#`. Change it's value to **no**
 - Find the line containing `PubkeyAuthentication` and ensure it's value is set to **yes**
 - Find the line containing `ChallengeResponseAuthentication` and ensure it's value is set to **no**
-- Save your changes and close the file
-  - `CTRL + X`
-  - `Y`
-  - `ENTER`
-- While still logged in as `root`, open a new terminal window and test logging in as `pi` and verify that the public key authentication works
-    ```shell
-    ssh pi@your_server_ip
-    ```
+
+Save your changes and close the file
+
+- `CTRL + X`
+- `Y`
+- `ENTER`
+
+While still logged in as `root`, open a new terminal window and test logging in as `pi` and verify that the public key authentication works
+
+```shell
+ssh pi@your_server_ip
+```
 
 ### (Optional) Install **Mosh**
 
@@ -122,24 +146,25 @@ We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%2
 
 We will be opening ports for secure FTP so that `.ovpn` files needed for connecting to our VPN later can be retrieved via a FTP application such as [Filezilla](https://filezilla-project.org/) or [Transmit](https://panic.com/transmit/).
 
-- Set up `ufw`
-    ```shell
-    # Apply basic defaults
-    sudo ufw default deny incoming
-    sudo ufw default allow outgoing
+To set up `ufw`, enter the following commands:
 
-    # Open ports for OpenSSH
-    sudo ufw allow OpenSSH
+```shell
+# Apply basic defaults
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
 
-    # Optionally, allow all access from your IP Address
-    sudo ufw allow from $yourIPAddress
+# Open ports for OpenSSH
+sudo ufw allow OpenSSH
 
-    # Open ports for secure FTP
-    sudo ufw allow sftp
+# Optionally, allow all access from your IP Address
+sudo ufw allow from $yourIPAddress
 
-    # Open ports for Mosh if you installed it
-    sudo ufw allow mosh
-    ```
+# Open ports for secure FTP
+sudo ufw allow sftp
+
+# Open ports for Mosh if you installed it
+sudo ufw allow mosh
+```
 
 ## Install **Pi-Hole**
 
@@ -147,10 +172,12 @@ Now that our server has been set up and is secure, we will now install the **Pi-
 
 Please note that on a Raspberry Pi we would be asked to set a [static IP address](https://support.google.com/fiber/answer/3547208?hl=en). This is important because we do not want the IP address of a DNS server to be constantly changing. However, since we are using a VPS, the static IP address has already been set for us. The networking interface will also be automatically selected as well since only one interface, `eth0`, will be available to us at the time of installation.
 
-- Run the offical [**Pi-Hole** installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
-    ```shell
-    curl -sSL https://install.pi-hole.net | bash
-    ```
+Run the offical [**Pi-Hole** installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh):
+
+```shell
+curl -sSL https://install.pi-hole.net | bash
+```
+
 - When asked about which protocols to use for blocking ads, select both `IPv4` and `IPv6`, even if you cannot use `IPv6` yet on your home network. The justification is that more ads are now being served via `IPv6` and we want to ensure all ads are blocked
 - On the very last screen, you will be presented various information about your new **Pi-Hole** installation. Your **Pi-Hole**'s IP address should match your server's IP address.
 
