@@ -17,19 +17,29 @@ After completing this tutorial, you will have:
 
 In order to follow this tutorial you will need to have a DigitalOcean account. If you do not have one, you can [sign up here](https://cloud.digitalocean.com/registrations/new).
 
-- Create a droplet
-  - Pick Ubuntu 16.04 x64 as your image
-    - You may pick another image, but this guide assumes you are using Ubuntu
-  - Pick `$5/mo` as your size
-  - Pick your datacenter region
-      - Pick a region that is as geographically close to you as possible
-  - Select additional options
-      - Check **IPv6** so that ads served on IPv6 can be blocked
-      - (Optional) Check **Monitioring** to enable DigitalOcean's enhanced monitoring
-  - This guide skips adding or using SSH keys for now
-  - Choose a hostname
-      - E.g., `nledford-pihole`
+## Creating a Droplet
+
+This tutorial will use **Ubuntu 16.04 x64** as the base image. 16.04 is a long-term support release of Ubuntu and supports all of the software we will be installing. You can pick a different Linux distrobution if you wish, but be cautioned that the software may not work without some extra effort on your part.
+
+- Go the the [Create Droplet](https://cloud.digitalocean.com/droplets/new) page in your DigitalOcean account
+- Choose an Image
+  - Select _Distributions_ and then _Ubuntu_. If _16.04_ is not selected by default, select it in the dropdown menu.
+- Choose a size
+  - `$5/mo` will be large enough for this tutorial. You can select a larger size later if necessary.
+- Choose a datacenter region
+  - I recommend selecting a region that is closest to you
+- Select Additional Options
+  - Select `IPv6` so that we can block ads that are served on that protocol
+  - (Optional) Select `Monitoring` for additional monitoring features provided by DigitalOcean
+- Add your SSH keys
+  - Do not add any SSH keys yet. We will add them later.
+- Finalize and create
+  - Make sure you are creating a single droplet
+  - Choose a hostname, e.g. `nledford-pihole`
   - Click the **Create** button
+
+DigitalOcean will start the process of creating the droplet for you and will send you an email containing the root password for your droplet. We will need that root password before we can log into and configure our new droplet.
+
 - Log in as root
     ```shell
     ssh root@your_server_ip
