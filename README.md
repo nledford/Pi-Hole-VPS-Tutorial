@@ -167,6 +167,9 @@ We will be opening ports for secure FTP so that `.ovpn` files needed for connect
 - When asked to select a Public IP or DNS, select your server's IP address
 - When asked to select a DNS provider, either accept Google as the default (`8.8.8.8`, `8.8.4.4`) or select custom and enter your preferred DNS providers
 - Allow the installer to reboot your VPS
+
+## OpenVPN
+
 - Create an OpenVPN profile
     ```shell
     # Create ovpn profile with a password
@@ -178,6 +181,9 @@ We will be opening ports for secure FTP so that `.ovpn` files needed for connect
 - TODO add instructions on how to retrieve `.ovpn` profile from VPS using FTP application
 - TODO add instructions on how to use `.ovpn` profile with OpenVPN clients
 - Make final adjustments to files on your VPS
+
+## TODO section for remaining tweaks
+
 - TODO code from Step 8: Adjust the Server Networking Configuration
 
 ## Sources
