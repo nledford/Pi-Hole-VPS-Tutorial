@@ -93,7 +93,7 @@ ssh-copy-id pi@your_server_ip
 ```
 
 - If you opted to add SSH during the droplet creation process anyway, this method will not work.
- 
+
 You should repeat this steps for each device you want to access the server, including desktops, laptops, tablets, and mobile phones.
 
 #### Disable Passphrase Authentication
