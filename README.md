@@ -106,7 +106,7 @@ Once you have added SSH keys from all of your devices, we can disable passphrase
 
 ### (Optional) Install **Mosh**
 
-[Mosh](https://mosh.org/), or mobile shell, is a remote termina application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
+[**Mosh**](https://mosh.org/), or mobile shell, is a remote termina application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
 
 ```shell
 # Update your sources, if necessary
@@ -202,10 +202,10 @@ pihole -a -p myawesomepassphrase
 
 ## Sources
 
-- Pi-Hole
+- **Pi-Hole**
   - [Official Website](https://pi-hole.net/)
   - [Github](https://github.com/pi-hole/pi-hole)
-- PiVPN
+- **PiVPN**
   - [Official Website](http://www.pivpn.io/)
   - [Github](https://github.com/pivpn/pivpn)
 - [Digital Ocean: Initial Server Setup with Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
