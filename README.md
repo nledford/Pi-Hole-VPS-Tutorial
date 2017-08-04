@@ -145,7 +145,7 @@ We will be opening ports for secure FTP so that `.ovpn` files needed for connect
 
 Now that our server has been set up and is secure, we will now install the **Pi-Hole** software. The installation is fairly simple and requires a small amount of configuration on our part.
 
-Please note that on a Raspberry Pi we would be asked to set a [static IP address](https://support.google.com/fiber/answer/3547208?hl=en). This is important because we do not want the IP address of a DNS server to be constantly changing. However, since we are using a VPS, the static IP address has already been set for us. The networking interface will also be automatically selected as well since only one, `eth0`, will be available to us at the time of installation.
+Please note that on a Raspberry Pi we would be asked to set a [static IP address](https://support.google.com/fiber/answer/3547208?hl=en). This is important because we do not want the IP address of a DNS server to be constantly changing. However, since we are using a VPS, the static IP address has already been set for us. The networking interface will also be automatically selected as well since only one interface, `eth0`, will be available to us at the time of installation.
 
 - Run the offical [**Pi-Hole** installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh)
     ```shell
