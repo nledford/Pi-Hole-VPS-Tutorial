@@ -183,8 +183,9 @@ curl -L https://install.pivpn.io | bash
 - When asked to set the size of your encryption key, select `2048`
   - Generating the encryption key will take a few minutes
 - When asked to select a Public IP or DNS, select your server's IP address
-- When asked to select a DNS provider, either accept Google as the default (`8.8.8.8`, `8.8.4.4`) or select custom and enter your preferred DNS providers
-- Allow the installer to reboot your VPS
+- When asked to select a DNS provider, select the `custom` option and enter the IP address of your server
+
+Once the installer is finished, allow it to reboot your VPS
 
 ## OpenVPN
 
