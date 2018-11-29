@@ -1,7 +1,5 @@
 # Installing **Pi-Hole** and **PiVPN** on a **DigitalOcean** VPS
 
-**This guide is still a work-in-progress. Many critical steps are missing. I would not recommend following the guide as-is right now.**
-
 ## Introduction
 
 The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) and [PiVPN](http://www.pivpn.io/) on a VPS, from companies such as [DigitalOcean](https://www.digitalocean.com/) or [Vultr](https://www.vultr.com/). The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
