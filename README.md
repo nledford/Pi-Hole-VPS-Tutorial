@@ -199,7 +199,7 @@ Now that both **Pi-Hole** and **PiVPN** are installed, there are a couple of cri
 
 ### `dnsmasq`
 
-First we will edit a configuration file for `dnsmasq`, the DNS service that powers **Pi-Hole**
+First we will create a configuration file for `dnsmasq`, the DNS service that powers **Pi-Hole**
 
 Log into your server as `pi` if you are not logged in already:
 
@@ -207,22 +207,22 @@ Log into your server as `pi` if you are not logged in already:
 ssh pi@your_server_ip
 ```
 
-Open the `dnsmasq.conf` file:
+Create a new configuration file called `02-pivpn.conf`:
 
 ```shell
-sudo nano /etc/dnsmasq.conf
+sudo nano /etc/02-pivpn.conf
 ```
 
-Find the line containing `listen-address=`. This line may be commented out with a `#`. Uncomment the line if necessary and update it to include your server's IP address and OpenVPN interface's IP Address.
+Add the following line to the file:
 
 ```shell
 listen-address=127.0.0.1, your_server_ip, 10.8.0.1
 ```
 
-Save and exit the file, and restart the `dnsmasq` service:
+Save and exit the file, and restart Pi-Holes FTL service:
 
 ```shell
-sudo service dnsmasq restart
+pihole restartdns
 ```
 
 ### Network Adjustments
