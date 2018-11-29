@@ -316,18 +316,6 @@ sudo ufw enable
 sudo service openvpn reload
 ```
 
-## Acquiring OpenVPN clients
-
-TODO add tutorials for installing clients on various platforms
-
-## Generating OpenVPN profiles
-
-TODO add instructions for generating an `.ovpn` profile with PiVPN
-
-## Conclusion
-
-TODO should I even add a conclusion?
-
 ## Sources
 
 - **Pi-Hole**
