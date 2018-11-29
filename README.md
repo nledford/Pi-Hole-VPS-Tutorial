@@ -13,7 +13,7 @@ After completing this tutorial, you will have:
 
 ## Prerequisites
 
-In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using Ubuntu 18.04.
+In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using Ubuntu 18.04 and Pi-Hole Version 4.1.
 
 Companies like **DigitalOcean** provide [tutorials](https://www.digitalocean.com/docs/droplets/how-to/create/) for creating a VPS on their servers.
 
