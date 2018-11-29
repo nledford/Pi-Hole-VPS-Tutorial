@@ -1,4 +1,4 @@
-# Installing **Pi-Hole** and **PiVPN** on a **DigitalOcean** VPS
+# Installing **Pi-Hole** and **PiVPN** on a VPS
 
 ## Introduction
 
