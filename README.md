@@ -326,11 +326,11 @@ The following section is optional and **requires you to have your own domain nam
 2. Go to this [Certbot page](https://certbot.eff.org/lets-encrypt/ubuntubionic-other) (for Ubuntu 18.04) and following the **Install** commands to install Certbot on your server.
 3. Perform a dry run to acquire a certificate for your domain. For example:
     ```bash
-    ./certbot-auto certonly --webroot -w /var/www/html -d example.com --dry-run
+    certbot certonly --webroot -w /var/www/html -d example.com --dry-run
     ```
 4. If acquiring the certificate was successful, run the same command again without `--dry-run`. For example:
     ```bash
-    ./certbot-auto certonly --webroot -w /var/www/html -d example.com
+    certbot certonly --webroot -w /var/www/html -d example.com
     ```
 5. Edit the file `/etc/lighttpd/conf-available/10-ssl.conf`. Replace `example.com` with your own domain name:
     ```bash
