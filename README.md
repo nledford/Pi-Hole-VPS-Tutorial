@@ -316,6 +316,71 @@ sudo ufw enable
 sudo service openvpn reload
 ```
 
+## Let's Encrypt
+
+The following section is optional and **requires you to have your own domain name**, but it will configure your Pi-Hole's web interface to use `https` courtesy of [Let's Encrypt](https://letsencrypt.org/) and [Certbot](https://certbot.eff.org/). It can be considered overkill just for Pi-Hole, but it certainly doesn't hurt. First we will acquire the certificate and then we will configure `lighttdp` to automatically redirect any `http` requests to `https`. The steps are based on [this reddit post](https://www.reddit.com/r/pihole/comments/6e2jyr/self_signed_ssl_cert_for_the_admin_login_page/di7ct0b).
+
+### Acquiring the certificate
+
+1. Log into your remote server again either as `root` or with root privileges.
+2. Go to this [Certbot page](https://certbot.eff.org/lets-encrypt/ubuntubionic-other) (for Ubuntu 18.04) and following the **Install** commands to install Certbot on your server.
+3. Perform a dry run to acquire a certificate for your domain. For example:
+```bash
+./certbot-auto certonly --webroot -w /var/www/html -d example.com --dry-run
+```
+4. If acquiring the certificate was successful, run the same command again without `--dry-run`. For example:
+```bash
+./certbot-auto certonly --webroot -w /var/www/html -d example.com
+```
+5. Edit the file `/etc/lighttpd/conf-available/10-ssl.conf`. Replace `example.com` with your own domain name:
+```bash
+ssl.pemfile = "/etc/letsencrypt/live/example.com/combined.pem"
+ssl.ca-file = "/etc/letsencrypt/live/example.com/chain.pem"
+```
+6. Run the following commands, replacing `example.com` with your domain name:
+```bash
+ln -s /etc/lighttpd/conf-available/10-ssl.conf /etc/lighttpd/conf-enabled/10-ssl.conf
+cd /etc/letsencrypt/live/example.com/
+cat privkey.pem cert.pem > combined.pem
+```
+7. Restart `lighttpd`:
+    ```bash
+    sudo systemctl restart lighttpd
+    ```
+    `https` should now be enabled on your web interface.
+8. Add a cron job to automatically renew the certificate every 90 days. Open `/etc/crontab` and add the following line:
+
+```bash
+47 5 * * * root certbot renew --quiet --no-self-upgrade --renew-hook "cat $RENEWED_LINEAGE/privkey.pem $RENEWED_LINEAGE/cert.pem > $RENEWED_LINEAGE/combined.pem;systemctl reload-or-try-restart lighttpd"
+```
+
+### Configure the Redirect
+
+Open the `lighttpd` configuration file, `/etc/lighttpd/lighttpd.conf`, and add the following block of code:
+
+```bash
+compress.cache-dir = "/var/cache/lighttpd/compress/"
+compress.filetype = ( "application/javascript", "text/css", "text/html", "text/plain" )
+
+# [add after the syntax above]
+
+# Redirect HTTP to HTTPS
+$HTTP["scheme"] == "http" {
+    $HTTP["host"] =~ ".*" {
+        url.redirect = (".*" => "https://%0$0")
+    }
+}
+```
+
+Restart `lighttpd` again:
+
+```bash
+sudo systemctl restart lighttpd
+```
+
+Your web interface should now automatically redirect any `http` requests to `https`.
+
+
 ## Sources
 
 - **Pi-Hole**
