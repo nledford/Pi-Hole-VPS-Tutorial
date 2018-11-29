@@ -71,7 +71,7 @@ Copy the public key from your local machine to your remote server with `ssh-copy
 ssh-copy-id pi@your_server_ip
 ```
 
-- If you opted to add SSH during the droplet creation process anyway, this method will not work.
+- If you opted to add SSH during the server creation process anyway, this method will not work.
 
 You should repeat this steps for each device you want to access the server, including desktops, laptops, tablets, and mobile phones.
 
