@@ -325,24 +325,24 @@ The following section is optional and **requires you to have your own domain nam
 1. Log into your remote server again either as `root` or with root privileges.
 2. Go to this [Certbot page](https://certbot.eff.org/lets-encrypt/ubuntubionic-other) (for Ubuntu 18.04) and following the **Install** commands to install Certbot on your server.
 3. Perform a dry run to acquire a certificate for your domain. For example:
-```bash
-./certbot-auto certonly --webroot -w /var/www/html -d example.com --dry-run
-```
+    ```bash
+    ./certbot-auto certonly --webroot -w /var/www/html -d example.com --dry-run
+    ```
 4. If acquiring the certificate was successful, run the same command again without `--dry-run`. For example:
-```bash
-./certbot-auto certonly --webroot -w /var/www/html -d example.com
-```
+    ```bash
+    ./certbot-auto certonly --webroot -w /var/www/html -d example.com
+    ```
 5. Edit the file `/etc/lighttpd/conf-available/10-ssl.conf`. Replace `example.com` with your own domain name:
-```bash
-ssl.pemfile = "/etc/letsencrypt/live/example.com/combined.pem"
-ssl.ca-file = "/etc/letsencrypt/live/example.com/chain.pem"
-```
+    ```bash
+    ssl.pemfile = "/etc/letsencrypt/live/example.com/combined.pem"
+    ssl.ca-file = "/etc/letsencrypt/live/example.com/chain.pem"
+    ```
 6. Run the following commands, replacing `example.com` with your domain name:
-```bash
-ln -s /etc/lighttpd/conf-available/10-ssl.conf /etc/lighttpd/conf-enabled/10-ssl.conf
-cd /etc/letsencrypt/live/example.com/
-cat privkey.pem cert.pem > combined.pem
-```
+    ```bash
+    ln -s /etc/lighttpd/conf-available/10-ssl.conf /etc/lighttpd/conf-enabled/10-ssl.conf
+    cd /etc/letsencrypt/live/example.com/
+    cat privkey.pem cert.pem > combined.pem
+    ```
 7. Restart `lighttpd`:
     ```bash
     sudo systemctl restart lighttpd
@@ -350,9 +350,9 @@ cat privkey.pem cert.pem > combined.pem
     `https` should now be enabled on your web interface.
 8. Add a cron job to automatically renew the certificate every 90 days. Open `/etc/crontab` and add the following line:
 
-```bash
-47 5 * * * root certbot renew --quiet --no-self-upgrade --renew-hook "cat $RENEWED_LINEAGE/privkey.pem $RENEWED_LINEAGE/cert.pem > $RENEWED_LINEAGE/combined.pem;systemctl reload-or-try-restart lighttpd"
-```
+    ```bash
+    47 5 * * * root certbot renew --quiet --no-self-upgrade --renew-hook "cat $RENEWED_LINEAGE/privkey.pem $RENEWED_LINEAGE/cert.pem > $RENEWED_LINEAGE/combined.pem;systemctl reload-or-try-restart lighttpd"
+    ```
 
 ### Configure the Redirect
 
