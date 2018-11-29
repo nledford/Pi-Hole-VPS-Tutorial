@@ -15,30 +15,9 @@ After completing this tutorial, you will have:
 
 ## Prerequisites
 
-In order to follow this tutorial you will need to have a **DigitalOcean** account. If you do not have one, you can [sign up here](https://cloud.digitalocean.com/registrations/new).
+In order to follow this tutorial you will need to have a VPS with at least 512 MBs of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists.
 
-## Creating a Droplet
-
-This tutorial will use **Ubuntu 16.04 x64** as the base image. _16.04_ is a long-term support release of Ubuntu and supports all of the software we will be installing. You can pick a different Linux distrobution if you wish, but be cautioned that the software may not work without some extra effort on your part.
-
-- Go the the [Create Droplet](https://cloud.digitalocean.com/droplets/new) page in your DigitalOcean account
-- Choose an Image
-  - Select _Distributions_ and then _Ubuntu_. If _16.04_ is not selected by default, select it in the dropdown menu.
-- Choose a size
-  - `$5/mo` will be large enough for this tutorial. You can select a larger size later if necessary.
-- Choose a datacenter region
-  - I recommend selecting a region that is closest to you
-- Select Additional Options
-  - Select `IPv6` so that we can block ads that are served on that protocol
-  - (Optional) Select `Monitoring` for additional monitoring features provided by **DigitalOcean**
-- Add your SSH keys
-  - Do not add any SSH keys yet. We will add them later.
-- Finalize and create
-  - Make sure you are creating a single droplet
-  - Choose a hostname, e.g. `nledford-pihole`
-  - Click the **Create** button
-
-**DigitalOcean** will start the process of creating the Droplet for you and will send you an email containing the root password for your Droplet. We will need that root passphrase before we can log into and configure our new droplet. The root password will be changed after your first login.
+Companies like **DigitalOcean** provide [tutorials](https://www.digitalocean.com/docs/droplets/how-to/create/) for creating a VPS on their servers.
 
 ## Initial Server Setup
 
