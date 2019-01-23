@@ -107,7 +107,7 @@ ssh pi@your_server_ip
 
 ### (Optional) Install **Mosh**
 
-[**Mosh**](https://mosh.org/), or mobile shell, is a remote termina application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
+[**Mosh**](https://mosh.org/), or **mo**bile **sh**ell, is a remote termina application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
 
 ```shell
 # Update your sources, if necessary
