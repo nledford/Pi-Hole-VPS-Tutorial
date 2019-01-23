@@ -170,6 +170,8 @@ pihole -a -p myawesomepassphrase
 
 I would also recommend checking out [this GitHub repository](https://github.com/anudeepND/whitelist) that will load commonly whitelisted domains (e.g., Facebook, Instagram, XBox Live) into your Pi-Hole.
 
+Finally, I would suggest following [this guide](https://docs.pi-hole.net/guides/unbound/) from the official Pi-Hole documentation to set up [**unbound**](https://nlnetlabs.nl/projects/unbound/about/) as your own recursive DNS server (rather than using a public DNS server such as Google DNS or Cloudflare). This will help to further increase the privacy of your DNS queries.
+
 ## Install **PiVPN**
 
 Installing **PiVPN** will be just as easy as installing **Pi-Hole**, although there is a bit more configuration required on our part for **PiVPN**. **PiVPN** automatically installs an [**OpenVPN** server](https://openvpn.net/) for us as well as any additional required software. The script will also automatically open ports in `ufw` so that an **OpenVPN** client can communicate with our VPS.
