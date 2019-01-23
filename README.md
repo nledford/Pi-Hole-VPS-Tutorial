@@ -109,7 +109,7 @@ ssh pi@your_server_ip
 
 [**Mosh**](https://mosh.org/), or **mo**bile **sh**ell, is a remote termina application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
 
-```shell
+```
 # Update your sources, if necessary
 sudo apt update
 
