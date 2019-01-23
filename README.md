@@ -119,7 +119,7 @@ sudo apt install mosh
 
 ### Set up **`ufw`**
 
-We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the VPS. Specifically, we want to ensure that only ports needed for SSH, **Pi-Hole**, and **PiVPN** are open. Additional ports can be opened depending on your specific needs.
+We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the VPS. Specifically, we want to ensure that only ports needed for SSH, **Pi-Hole**, and **PiVPN** are open. Additional ports can be opened later depending on your specific needs.
 
 We will be opening ports for secure FTP so that `.ovpn` files needed for connecting to our VPN later can be retrieved via a FTP application such as [Filezilla](https://filezilla-project.org/) or [Transmit](https://panic.com/transmit/).
 
