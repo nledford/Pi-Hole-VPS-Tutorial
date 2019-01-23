@@ -168,7 +168,7 @@ pihole -a -p myawesomepassphrase
 
 **Pi-Hole** allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., unblocking Netflix or Facebook). **Pi-Hole** developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own blocklists. Another blocklist collection is provided by [the Block List Project](https://tspprs.com/).
 
-I would also recommend checking out [this GitHub repository](https://github.com/anudeepND/whitelist) that will load commonly whitelisted domains into your Pi-Hole.
+I would also recommend checking out [this GitHub repository](https://github.com/anudeepND/whitelist) that will load commonly whitelisted domains (e.g., Facebook, Instagram, XBox Live) into your Pi-Hole.
 
 ## Install **PiVPN**
 
@@ -185,7 +185,7 @@ curl -L https://install.pivpn.io | bash
 - When asked to choose a local user to hold your `.ovpn` configuration files, select the user `pi`
 - When asked about enabling `UnattendedUpgrades`, pick yes
 - When asked to select the protocol, pick `UDP`
-- When asked to select the port, either accept the default `1194` or enter a random port such as `11948`
+- When asked to select the port, either accept the default `1194` or enter a random port (e.g., `11948`)
 - When asked to set the size of your encryption key, select `2048`
   - Generating the encryption key will take a few minutes
 - When asked to select a Public IP or DNS, select your server's IP address
