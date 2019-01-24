@@ -1,5 +1,27 @@
 # Installing **Pi-Hole** and **PiVPN** on a VPS
 
+## Table of Contents
+- [Installing **Pi-Hole** and **PiVPN** on a VPS](#installing-pi-hole-and-pivpn-on-a-vps)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Prerequisites](#prerequisites)
+  - [Initial Server Setup](#initial-server-setup)
+    - [`root` Login](#root-login)
+    - [Public Key Authentication](#public-key-authentication)
+      - [Disable Passphrase Authentication](#disable-passphrase-authentication)
+    - [(Optional) Install **Mosh**](#optional-install-mosh)
+    - [Set up **`ufw`**](#set-up-ufw)
+  - [Install **Pi-Hole**](#install-pi-hole)
+    - [(Optional) Configure **Pi-Hole**](#optional-configure-pi-hole)
+  - [Install **PiVPN**](#install-pivpn)
+  - [Configure **Pi-Hole** and **PiVPN**](#configure-pi-hole-and-pivpn)
+    - [`dnsmasq`](#dnsmasq)
+    - [Network Adjustments](#network-adjustments)
+  - [Let's Encrypt](#lets-encrypt)
+    - [Acquiring the certificate](#acquiring-the-certificate)
+    - [Configure the Redirect](#configure-the-redirect)
+  - [Sources](#sources)
+
 ## Introduction
 
 The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) and [PiVPN](http://www.pivpn.io/) on a VPS, from companies such as [DigitalOcean](https://www.digitalocean.com/) or [Vultr](https://www.vultr.com/). The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
@@ -164,7 +186,7 @@ Once you have completed the **Pi-Hole** installation script, you should change t
 pihole -a -p myawesomepassphrase
 ```
 
-## (Optional) Configure **Pi-Hole**
+### (Optional) Configure **Pi-Hole**
 
 **Pi-Hole** allows you to customize what websites you want to block and allows to you whitelist any false positives (e.g., unblocking Netflix or Facebook). **Pi-Hole** developer [WaLLy3K](https://github.com/WaLLy3K) provides a [popular collection of blocklists](https://wally3k.github.io/) that you can add to your own blocklists. Another blocklist collection is provided by [the Block List Project](https://tspprs.com/).
 
