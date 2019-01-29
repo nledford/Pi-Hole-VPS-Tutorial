@@ -241,7 +241,7 @@ Add the following line to the file:
 listen-address=127.0.0.1, your_server_ip, 10.8.0.1
 ```
 
-Save and exit the file, and restart Pi-Holes FTL service:
+Save and exit the file, and restart **Pi-Hole**'s FTL service:
 
 ```shell
 pihole restartdns
