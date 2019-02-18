@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) and [PiVPN](http://www.pivpn.io/) on a VPS, from companies such as [DigitalOcean](https://www.digitalocean.com/) or [Vultr](https://www.vultr.com/). The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
+The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) and Wireguard on a VPS, from companies such as [DigitalOcean](https://www.digitalocean.com/) or [Vultr](https://www.vultr.com/). The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
 
 Almost every tutorial I found was focused on installing **Pi-Hole** and **Wireguard** on a local Raspberry Pi instead of on a VPS. The steps are mostly the same but there are some extra steps involved in securing the VPS to deny access from bad actors.
 
