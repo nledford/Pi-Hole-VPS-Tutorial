@@ -1,5 +1,7 @@
 # Installing **Pi-Hole** and **PiVPN** on a VPS
 
+[PiVPN has been discontinued.](https://github.com/pivpn/pivpn/blob/84cd315a522d99717cc4f103c5870b8d014bf846/README.md) This guide should still work for now, but I will be updating the guide to use Wireguard instead ASAP.
+
 ## Table of Contents
 
 1. [Introduction](#Introduction)
