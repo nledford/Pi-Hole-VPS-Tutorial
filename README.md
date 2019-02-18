@@ -190,6 +190,31 @@ Save and close the file, then log out so that the environment variables can be r
 
 ### Create `docker-compose.yml` Configuration File
 
+Create a docker folder in `pi`'s home directory:
+
+```
+mkdir ~/docker
+```
+
+Type in the following command to set the necessary permissions. They will make any new subfolders inherit the permissions from the docker folder. We will be storing configuration folders for our containers in the docker folder, hence why we want such liberal permissions.
+
+```
+sudo chmod -R 775 ~/docker
+```
+
+Now create the Docker Compose file:
+
+```
+nano ~/docker/docker-compose.yml
+```
+
+And add the following two lines:
+
+```
+version: "3.6"
+services:
+```
+
 ## Install **Pi-Hole**
 
 Now that our server has been set up and is secure, we will now install the **Pi-Hole** software. The installation is fairly simple and requires a small amount of configuration on our part.
