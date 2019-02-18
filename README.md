@@ -1,4 +1,4 @@
-# Installing **Pi-Hole** and **PiVPN** on a VPS
+# Installing **Pi-Hole** and **Wireguard** on a VPS
 
 ## Introduction
 
