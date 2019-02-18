@@ -153,6 +153,14 @@ We will be using [**Docker**](https://www.docker.com/) to run the software cover
 
 ### Add `pi` user to Docker Group
 
+Running docker containers requries `sudo` privileges. To avoid needing `sudo` for every command or having to switch to the `root` user, we will add the `pi` user to the `docker` group that was added when we installed docker.
+
+To add the `pi` user to the `docker` group, use the following command:
+
+```shell
+sudo usermod -aG docker ${USER}
+```
+
 ### Create environment variables
 
 ### Create `docker-compose.yml` Configuration File
