@@ -1,7 +1,5 @@
 # Installing **Pi-Hole** and **PiVPN** on a VPS
 
-[PiVPN has been discontinued.](https://github.com/pivpn/pivpn/blob/84cd315a522d99717cc4f103c5870b8d014bf846/README.md) This guide should still work for now, but I will be updating the guide to use Wireguard instead ASAP.
-
 ## Introduction
 
 The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) and [PiVPN](http://www.pivpn.io/) on a VPS, from companies such as [DigitalOcean](https://www.digitalocean.com/) or [Vultr](https://www.vultr.com/). The ultimate goal is to have an ad-blocker that will work both on my home network and on any device connected to the VPN.
