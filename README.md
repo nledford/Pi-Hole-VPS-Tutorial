@@ -163,6 +163,31 @@ sudo usermod -aG docker ${USER}
 
 ### Create environment variables
 
+Before we can create our environment variables, we need to find the user ID of the `pi` user. Use the `id` command:
+
+```
+uid=1000(pi) gid=1000(pi) groups=1000(pi),27(sudo)
+```
+
+Make note of both the `uid` and the `gid`.
+
+Now open the environment variables:
+
+```
+sudo nano /etc/environment
+```
+
+And add the following variables at the end of the file, each on a separate line. Be sure to [update the time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) to whatever matches yours.
+
+```
+PUID=$your_uid
+PGID=$your_gid
+TZ="America/New_York"
+USERDIR="/home/pi"
+```
+
+Save and close the file, then log out so that the environment variables can be reloaded.
+
 ### Create `docker-compose.yml` Configuration File
 
 ## Install **Pi-Hole**
