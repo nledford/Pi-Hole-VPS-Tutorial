@@ -145,13 +145,17 @@ sudo ufw allow mosh
 
 ## Install Docker
 
-We will be using [**Docker**](https://www.docker.com/) to run the software covered in this guide in containers. We will create environment variables that will be used by the Docker containers, install Docker and Docker Compose, and then create a Docker Compose configuration file that will be expanded throughout the guide
+We will be using [**Docker**](https://www.docker.com/) to run the software covered in this guide in containers. We will install Docker and Docker Compose, add the `pi` user to the Docker group, create environment variables that will be used by the Docker containers, and then create a Docker Compose configuration file that will be expanded throughout the guide
 
-- Create environment variables first
-- then install docker and docker compose
-- create initial `docker-compose.yml` file
+### Install Docker and Docker Compose
 
 [installation guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+### Add `pi` user to Docker Group
+
+### Create environment variables
+
+### Create `docker-compose.yml` Configuration File
 
 ## Install **Pi-Hole**
 
