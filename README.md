@@ -143,6 +143,16 @@ sudo ufw allow sftp
 sudo ufw allow mosh
 ```
 
+## Install Docker
+
+We will be using [**Docker**](https://www.docker.com/) to run the software covered in this guide in containers. We will create environment variables that will be used by the Docker containers, install Docker and Docker Compose, and then create a Docker Compose configuration file that will be expanded throughout the guide
+
+- Create environment variables first
+- then install docker and docker compose
+- create initial `docker-compose.yml` file
+
+[installation guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
 ## Install **Pi-Hole**
 
 Now that our server has been set up and is secure, we will now install the **Pi-Hole** software. The installation is fairly simple and requires a small amount of configuration on our part.
