@@ -14,6 +14,30 @@ After completing this tutorial you will have:
 - A VPN server using **Wireguard**
 - Auto-updating containers using **Watchtower**
 
+## Prerequisites
+
+In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using at least Ubuntu 18.04 and Pi-Hole Version 4.2. Other distros will mostly likely work, but I have only tested the steps covered in this tutorial on Ubuntu 18.10.
+
+Companies like **DigitalOcean** provide [tutorials](https://www.digitalocean.com/docs/droplets/how-to/create/) for creating a VPS on their servers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---------------------------------------------------------------------------
