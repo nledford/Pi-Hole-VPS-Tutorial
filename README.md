@@ -270,6 +270,31 @@ version: "3.6"
 services:
 ```
 
+## Install `unbound`
+
+The first service we will install is `unbound`. TODO: explain why
+
+Add the following lines to your `docker-compose.yml` file, after the `services:` line:
+
+```yaml
+version: "3.6"
+services:
+
+  unbound:
+    container_name: unbound_docker
+    image: klutchell/unbound:latest
+    ports:
+      - "5353:53/tcp"
+      - "5353:53/udp"
+    environment:
+      TZ: ${TZ}
+    restart: always
+```
+
+## Disable `systemd-resolved`
+
+Before we can install **Pi-Hole**, we first have to disable `system-resolved` (the exisiting DNS server) so that we avoid port conflicts.
+
 ---------------------------------------------------------------------------
 
 ## Install **Pi-Hole**
