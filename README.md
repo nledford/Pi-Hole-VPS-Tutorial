@@ -138,9 +138,9 @@ sudo nano /etc/environment
 Add the following environment variables to the bottom of the file, making changes where necessary.
 
 ```
-TZ=America/New_York         # Set this to your timezone
-SERVER_IP=127.0.0.1         # Set this to your VPS's IPv4 Address
-SERVER_IPV6=::1             # Set this to your VPS's IPv6 Address, if using IPv6
+TZ=America/New_York             # Set this to your timezone
+SERVER_IP=127.0.0.1             # Set this to your VPS's IPv4 Address
+SERVER_IPV6=::1                 # Set this to your VPS's IPv6 Address, if using IPv6
 DOCKER_DIR=/home/pi/docker
 ```
 
