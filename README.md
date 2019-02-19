@@ -189,15 +189,25 @@ sudo ufw allow sftp
 sudo ufw allow mosh
 ```
 
----------------------------------------------------------------------------
+## Set up Docker and `docker-compose`
 
-## Install Docker
+We will be using [**Docker**](https://www.docker.com/) to run the software covered in this guide in containers. We will install Docker and Docker Compose, add the `pi` user to the Docker group, and then create a Docker Compose configuration file that will be expanded throughout the guide.
 
-We will be using [**Docker**](https://www.docker.com/) to run the software covered in this guide in containers. We will install Docker and Docker Compose, add the `pi` user to the Docker group, create environment variables that will be used by the Docker containers, and then create a Docker Compose configuration file that will be expanded throughout the guide
+### Install Docker
 
-### Install Docker and Docker Compose
+Docker provides a bash script that we can use to automate the entire installation.
 
-[installation guide](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+Go to your temporary directory:
+
+```
+cd /tmp
+```
+
+And run the following command to install Docker:
+
+```
+curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
+```
 
 ### Add `pi` user to Docker Group
 
@@ -209,32 +219,29 @@ To add the `pi` user to the `docker` group, use the following command:
 sudo usermod -aG docker ${USER}
 ```
 
-### Create environment variables
-
-Before we can create our environment variables, we need to find the user ID of the `pi` user. Use the `id` command:
+Log out of your VPS and log back in as the `pi` user. `pi` should now be part of the `docker` group. To test this, and to test that Docker has been successfully installed, run the following command:
 
 ```
-uid=1000(pi) gid=1000(pi) groups=1000(pi),27(sudo)
+docker run hello-world
 ```
 
-Make note of both the `uid` and the `gid`.
+### Install `docker-compose`
 
-Now open the environment variables:
+There are multiple options for installing `docker-compose`, including installing it via `pip` and running it in a Docker container itself. We'll be downloading the binary from the GitHub repository and adding executable permissions to it.
 
-```
-sudo nano /etc/environment
-```
+Be sure to check the [release page](https://github.com/docker/compose/releases) and ensure you run the following command with the most recent release.
 
-And add the following variables at the end of the file, each on a separate line. Be sure to [update the time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) to whatever matches yours.
+Download `docker-compose`:
 
 ```
-PUID=$your_uid
-PGID=$your_gid
-TZ="America/New_York"
-USERDIR="/home/pi"
+sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
-Save and close the file, then log out so that the environment variables can be reloaded.
+Apply executable permissions:
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
 
 ### Create `docker-compose.yml` Configuration File
 
@@ -262,6 +269,8 @@ And add the following two lines:
 version: "3.6"
 services:
 ```
+
+---------------------------------------------------------------------------
 
 ## Install **Pi-Hole**
 
