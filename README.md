@@ -294,8 +294,6 @@ services:
 
 Before we can install **Pi-Hole**, we first have to disable `system-resolved` (the exisiting DNS server) so that we avoid port conflicts.
 
----------------------------------------------------------------------------
-
 ## Install **Pi-Hole**
 
 - add pi-hole to docker compose file
@@ -305,25 +303,7 @@ Before we can install **Pi-Hole**, we first have to disable `system-resolved` (t
   docker-compose -f ~/docker/docker-compose.yml up -d
   ```
 
-#### OUTDATED
-Now that our server has been set up and is secure, we will now install the **Pi-Hole** software. The installation is fairly simple and requires a small amount of configuration on our part.
-
-Please note that on a Raspberry Pi we would be asked to set a [static IP address](https://support.google.com/fiber/answer/3547208?hl=en). This is important because we do not want the IP address of a DNS server to be constantly changing. However, since we are using a VPS, the static IP address has already been set for us. The networking interface will also be automatically selected as well since only one interface, `eth0`, will be available to us at the time of installation.
-
-Run the offical [**Pi-Hole** installer](https://github.com/pi-hole/pi-hole/blob/master/automated%20install/basic-install.sh):
-
-```shell
-curl -sSL https://install.pi-hole.net | bash
-```
-
-- When asked about which protocols to use for blocking ads, select both `IPv4` and `IPv6`, even if you cannot use `IPv6` yet on your home network. The justification is that more ads are now being served via `IPv6` and we want to ensure all ads are blocked
-- On the very last screen, you will be presented various information about your new **Pi-Hole** installation. Your **Pi-Hole**'s IP address should match your server's IP address.
-
-Once you have completed the **Pi-Hole** installation script, you should change the passphrase to the admin panel:
-
-```shell
-pihole -a -p myawesomepassphrase
-```
+---------------------------------------------------------------------------
 
 ### (Optional) Configure **Pi-Hole**
 
