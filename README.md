@@ -137,6 +137,8 @@ sudo nano /etc/environment
 
 Add the following environment variables to the bottom of the file, making changes where necessary.
 
+TODO add instructions for quickly obtaining interface
+
 ```
 TZ=America/New_York                 # Set this to your timezone
 SERVER_IP=127.0.0.1                 # Set this to your VPS's IPv4 Address
