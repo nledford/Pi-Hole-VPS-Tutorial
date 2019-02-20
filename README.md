@@ -10,8 +10,8 @@ All the software will be installed using Docker containers and `docker-compose`.
 
 After completing this tutorial you will have:
 
-- A **Pi-Hole** accessible from anywhere
 - Your own recursive DNS resolver using **unbound**
+- A **Pi-Hole** accessible from anywhere
 - A VPN server using **Wireguard**
 - Auto-updating containers using **Watchtower**
 
