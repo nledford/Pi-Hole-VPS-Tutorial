@@ -1,5 +1,7 @@
 # Setting up a Pi-Hole VPN on a VPS
 
+TODO switch back to Ubuntu (because I'm a stubborn idiot)
+
 # Introduction
 
 The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) on a VPS. The ultimate goal is to have an ad-blocker that can work with any device connected to the VPS with a VPN connection. 
