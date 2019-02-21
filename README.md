@@ -4,7 +4,7 @@
 
 The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) on a VPS. The ultimate goal is to have an ad-blocker that can work with any device connected to the VPS with a VPN connection. 
 
-All the software will be installed using Docker containers and `docker-compose`. Using a `docker-compose.yml` file will allow you to quickly deploy your Pi-Hole VPN to any VPS as necessary.
+The software in this tutorial (with the exception of Wireguard) will be installed using Docker containers and `docker-compose`. Using a `docker-compose.yml` file will allow you to quickly deploy your Pi-Hole VPN to any VPS as necessary.
 
 After completing this tutorial you will have:
 
