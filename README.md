@@ -1,7 +1,5 @@
 # Setting up a Pi-Hole VPN on a VPS
 
-TODO switch back to Ubuntu (because I'm a stubborn idiot)
-
 # Introduction
 
 The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) on a VPS. The ultimate goal is to have an ad-blocker that can work with any device connected to the VPS with a VPN connection. 
@@ -17,7 +15,7 @@ After completing this tutorial you will have:
 
 ## Prerequisites
 
-In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using Debian 9 and Pi-Hole Version 4.2. Other distros will mostly likely work, but I have only tested the steps covered in this tutorial on Debian 9.
+In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using Ubuntu 18.10 and Pi-Hole Version 4.2. Other distros will mostly likely work, but I have only tested the steps covered in this tutorial on Ubuntu 18.10.
 
 Companies like **DigitalOcean** provide [tutorials](https://www.digitalocean.com/docs/droplets/how-to/create/) for creating a VPS on their servers.
 
