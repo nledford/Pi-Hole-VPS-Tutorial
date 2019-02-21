@@ -324,12 +324,44 @@ services:
 
 ### **Pi-Hole**
 
-- add pi-hole to docker compose file
+The next service we will add is Pi-Hole. The pihole config is a bit more involved and you will most likely want to customize the configuration to meet your specific needs.
 
-- start docker containers with command:
-  ```
-  docker-compose -f ~/docker/docker-compose.yml up -d
-  ```
+I would strongly suggest not changing the value of `network-mode` from `host`. That specific setting is necessary for Pi-Hole to communicate with `unbound`.
+
+Add the following block to your `docker-compose.yml`:
+
+```
+pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    hostname: pihole
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    dns: 
+      - 127.0.0.1
+      - 9.9.9.9
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      # - 67/udp # Uncomment for DHCP
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      TZ: ${TZ}
+      WEBPASSWORD: ${WEB_PASSWORD}
+      DNS1: 127.0.0.1#5053
+      DNS2: "no"
+      INTERFACE: ${INTERFACE}
+      ServerIP: ${SERVER_IP}
+      # ServerIPV6: ${SERVER_IPV6}      # Enable these lines for IPv6
+      # IPv6: "yes"
+      PROXY_LOCATION: pihole
+    volumes:
+      - ${DOCKER_DIR}/apps/pihole:/etc/pihole/
+      - ${DOCKER_DIR}/apps/dnsmasq.d:/etc/dnsmasq.d/
+    restart: unless-stopped
+```
 
 ---------------------------------------------------------------------------
 
