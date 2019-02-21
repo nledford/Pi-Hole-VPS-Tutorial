@@ -330,7 +330,7 @@ I would strongly suggest not changing the value of `network-mode` from `host`. T
 
 Add the following block to your `docker-compose.yml`:
 
-```
+```yaml
 pihole:
     container_name: pihole
     image: pihole/pihole:latest
@@ -360,6 +360,22 @@ pihole:
     volumes:
       - ${DOCKER_DIR}/apps/pihole:/etc/pihole/
       - ${DOCKER_DIR}/apps/dnsmasq.d:/etc/dnsmasq.d/
+    restart: unless-stopped
+```
+
+### **Watchtower**
+
+The final service we will add is Watchtower. Watchtower will monitor your other containers and automatically update them if needed.
+
+Add the following block to your `docker-compose.yml`:
+
+```yaml
+  watchtower:
+    container_name: watchtower
+    image: v2tec/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 3600
     restart: unless-stopped
 ```
 
