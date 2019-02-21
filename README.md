@@ -217,6 +217,7 @@ And add the following lines:
 nameserver 127.0.0.1
 nameserver 9.9.9.9
 ```
+Save and close the file.
 
 ## Set up Docker and `docker-compose`
 
