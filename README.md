@@ -194,6 +194,30 @@ sudo ufw allow sftp
 sudo ufw allow mosh
 ```
 
+### Disable `systemd-resolved`
+
+If you are using Ubuntu 18.04 or greater, you will need to disable `systemd-resolved` before installing any software, specifically Pi-Hole.
+
+Run the following commands to disable `systemd-resolved`:
+
+```
+sudo systemctl disable --now systemd-resolved.service
+sudo rm /etc/resolv.conf
+```
+
+Now create your own `resolv.conf` file:
+
+```
+sudo nano /etc/resolv.conf
+```
+
+And add the following lines:
+
+```
+nameserver 127.0.0.1
+nameserver 9.9.9.9
+```
+
 ## Set up Docker and `docker-compose`
 
 We will be using [**Docker**](https://www.docker.com/) to run the software covered in this guide in containers. We will install Docker and Docker Compose, add the `pi` user to the Docker group, and then create a Docker Compose configuration file that will be expanded throughout the guide.
