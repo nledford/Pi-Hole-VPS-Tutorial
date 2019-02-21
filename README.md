@@ -239,7 +239,7 @@ And run the following command to install Docker:
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 ```
 
-### Add `pi` user to Docker Group
+#### Add `pi` user to Docker Group
 
 Running docker containers requries `sudo` privileges. To avoid needing `sudo` for every command or having to switch to the `root` user, we will add the `pi` user to the `docker` group that was added when we installed docker.
 
@@ -273,7 +273,7 @@ Apply executable permissions:
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-### Create `docker-compose.yml` Configuration File
+## Create `docker-compose.yml` Configuration File
 
 Create a docker folder in `pi`'s home directory:
 
@@ -300,9 +300,9 @@ version: "3.6"
 services:
 ```
 
-## Install `unbound`
+### `unbound`
 
-The first service we will install is `unbound`. TODO: explain why
+The first service we will add is `unbound`. There are many Docker containers for `unbound` that can be used. I personally chose [Klutchell](https://github.com/klutchell/unbound)'s because it uses the root DNS servers. Another popular container that you can use is [MathewVance](https://github.com/MatthewVance/unbound-docker)'s; it uses Cloudflare's DNS servers via DNS-over-TLS instead of the root servers.
 
 Add the following lines to your `docker-compose.yml` file, after the `services:` line:
 
@@ -311,17 +311,18 @@ version: "3.6"
 services:
 
   unbound:
-    container_name: unbound_docker
-    image: klutchell/unbound:latest
+    container_name: unbound
+    image: klutchell/unbound:latest     # or mvance/unbound:latest
+    hostname: docker_unbound
     ports:
-      - "5353:53/tcp"
-      - "5353:53/udp"
+      - 5053:53/tcp
+      - 5053:53/udp
     environment:
       TZ: ${TZ}
-    restart: always
+    restart: unless-stopped
 ```
 
-## Install **Pi-Hole**
+### **Pi-Hole**
 
 - add pi-hole to docker compose file
 
