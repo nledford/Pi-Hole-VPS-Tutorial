@@ -230,25 +230,25 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 Create a docker folder in `pi`'s home directory:
 
-```
+```console
 mkdir ~/docker
 ```
 
-Type in the following command to set the necessary permissions. They will make any new subfolders inherit the permissions from the docker folder. We will be storing configuration folders for our containers in the docker folder, hence why we want such liberal permissions.
+Type in the following command to set the necessary permissions. They will make any new subfolders inherit the permissions from the `~/docker` folder. We will be storing configuration folders for our containers in the `~/docker` folder, hence why we want such liberal permissions.
 
-```
+```console
 sudo chmod -R 775 ~/docker
 ```
 
 Now create the Docker Compose file:
 
-```
+```console
 nano ~/docker/docker-compose.yml
 ```
 
 And add the following two lines:
 
-```
+```yaml
 version: "3.6"
 services:
 ```
