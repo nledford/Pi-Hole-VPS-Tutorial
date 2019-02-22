@@ -2,22 +2,20 @@
 
 # Introduction
 
-The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) on a VPS. The ultimate goal is to have an ad-blocker that can work with any device connected to the VPS with a VPN connection. 
+The purpose of this guide is to document the steps I take to set up [Pi-Hole](https://pi-hole.net/) on a VPS. The ultimate goal is to have an ad-blocker that can work with any device connected to the VPS with a VPN connectopm. 
 
-The software in this tutorial (with the exception of Wireguard) will be installed using Docker containers and `docker-compose`. Using a `docker-compose.yml` file will allow you to quickly deploy your Pi-Hole VPN to any VPS as necessary.
+The software in this tutorial (with the exception of Wireguard) will be installed using [Docker containers](https://docs.docker.com/engine/docker-overview/) and [Docker Compose](https://docs.docker.com/compose/overview/). Using a `docker-compose.yml` file (with some initial configuration) will allow you to quickly deploy your Pi-Hole VPN to any VPS.
 
 After completing this tutorial you will have:
 
-- Your own recursive DNS resolver using **unbound**
-- A **Pi-Hole** accessible from anywhere
-- A VPN server using **Wireguard**
-- Auto-updating containers using **Watchtower**
+- Your own recursive DNS resolver using **[unbound](https://www.nlnetlabs.nl/projects/unbound/about/)**
+- A **[Pi-Hole](https://pi-hole.net/)** accessible from anywhere
+- A VPN tunnel using **[Wireguard](https://www.wireguard.com/)**
+- Auto-updating containers using **[Watchtower](https://github.com/v2tec/watchtower)**
 
 ## Prerequisites
 
-In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using Ubuntu 18.10 and Pi-Hole Version 4.2. Other distros will mostly likely work, but I have only tested the steps covered in this tutorial on Ubuntu 18.10.
-
-Companies like **DigitalOcean** provide [tutorials](https://www.digitalocean.com/docs/droplets/how-to/create/) for creating a VPS on their servers.
+In order to follow this tutorial you will need to have a VPS with at least 512 MB of memory, although I would personally recommend at least 1 GB if you plan on having a large number of blocklists. This guide assumes that you are using Ubuntu 18.04 and the latest Pi-Hole version. Other distros will mostly likely work, but I have only tested the steps covered in this tutorial on Ubuntu 18.04.
 
 ## Initial Server Setup
 
