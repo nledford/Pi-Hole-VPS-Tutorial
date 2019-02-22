@@ -208,9 +208,9 @@ Log out of your VPS and log back in as the `pi` user. `pi` should now be part of
 docker run hello-world
 ```
 
-### Install `docker-compose`
+### Install Docker Compose
 
-There are multiple options for installing `docker-compose`, including installing it via `pip` and running it in a Docker container itself. We'll be downloading the binary from the GitHub repository and adding executable permissions to it.
+There are multiple options for installing Docker Compose, including installing it via `pip` or running it in a Docker container itself. We'll be downloading the binary from the GitHub repository and adding executable permissions to it.
 
 Be sure to check the [release page](https://github.com/docker/compose/releases) and ensure you run the following command with the most recent release.
 
