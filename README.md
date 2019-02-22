@@ -35,7 +35,7 @@ ssh root@your_server_ip
 
 ### Update VPS
 
-We will update and then reboot the VPS to ensure everything is up-to-date and the latest security patches are installed.
+We will update and then reboot the VPS to ensure everything is up-to-date and the latest security patches are installed. (You'll be rebooting a few more times throughout this guide.)
 
 Update your VPS (assuming you are using Ubuntu/Debian):
 
