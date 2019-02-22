@@ -27,7 +27,7 @@ This section essentially covers all of the steps from [**DigitalOcean**'s tutori
 
 When you have your server's IP address and root passphrase, log into the server as the `root` user
 
-```shell
+```console
 ssh root@your_server_ip
 ```
 
@@ -39,13 +39,13 @@ We will update and then reboot the VPS to ensure everything is up-to-date and th
 
 Update your VPS (assuming you are using Ubuntu/Debian):
 
-```
+```console
 sudo apt update && sudo apt upgrade -y
 ```
 
 Once the updates have been installed, reboot the VPS:
 
-```
+```console
 sudo reboot
 ```
 
@@ -53,13 +53,13 @@ sudo reboot
 
 Log back into your VPS as `root` and create new user `pi`
 
-```shell
+```console
 adduser pi
 ```
 
 Grant root privileges to `pi`
 
-```shell
+```console
 usermod -aG sudo pi
 ```
 
