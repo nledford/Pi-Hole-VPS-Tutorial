@@ -69,26 +69,36 @@ Many Docker containers require similar settings, such as timezones and applicati
 
 Log in to your VPS as the `pi` user and open `/etc/environment`:
 
-```
+```console
 sudo nano /etc/environment
 ```
 
 Add the following environment variables to the bottom of the file, making changes where necessary.
 
-TODO add instructions for quickly obtaining interface
-
-```
+```shell
 TZ=America/New_York                 # Set this to your timezone
 SERVER_IP=127.0.0.1                 # Set this to your VPS's IPv4 Address
 SERVER_IPV6=::1                     # Set this to your VPS's IPv6 Address, if using IPv6
 DOCKER_DIR=/home/pi/docker
 WEB_PASSWORD=myawesomepassphrase    # Your passphrase for the Pi-Hole web interface
-INTERFACE=eth0                  # Set to the main interface on your VPS
+INTERFACE=eth0                      # Set to the main interface on your VPS
+```
+
+If you don't know what the main interface on your VPS, you can quickly find it using `ip`:
+
+```console
+ip route | grep default
+```
+
+Your public interface will follow the word "`dev`" in the output. For example:
+
+```console
+default via 203.0.113.1 dev eth0  proto static  metric 600
 ```
 
 Save your changes and close the file. Then reboot:
 
-```
+```console
 sudo reboot
 ```
 
