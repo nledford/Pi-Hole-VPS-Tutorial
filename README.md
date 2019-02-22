@@ -63,66 +63,6 @@ Grant root privileges to `pi`
 usermod -aG sudo pi
 ```
 
-### Public Key Authentication
-
-[Public Key Authentication](https://the.earth.li/~sgtatham/putty/0.55/htmldoc/Chapter8.html) provides an alternative method of identifying yourselve to a remote server and increases the overall security of your server.
-
-If you do not already have an SSH key, you will need to create one on your local computer
-
-```shell
-ssh-keygen
-```
-
-Save your key in the default file (where `$user` is your user)
-
-```shell
-Enter file in which to save the key (/Users/$user/.ssh/id_rsa):
-```
-
-Create a secure passphrase. You will need to enter this passphrase each time you utilize your SSH key
-
-Copy the public key from your local machine to your remote server with `ssh-copy-id`
-
-```shell
-ssh-copy-id pi@your_server_ip
-```
-
-- If you opted to add SSH during the server creation process anyway, this method will not work.
-
-You should repeat these steps for each device you want to access the server, including desktops, laptops, tablets, and mobile phones.
-
-#### Disable Passphrase Authentication
-
-Once you have added SSH keys from all of your devices, we can disable passphrase authentication.
-
-Log into your server as `root`, if you are not already logged in
-
-```shell
-ssh root@your_server_ip
-```
-
-Open the SSH daemon configuration file
-
-```shell
-sudo nano /etc/ssh/ssdh_config
-```
-
-- Find the line containing `PasswordAuthentication` and uncomment it by deleting the preceeding `#`. Change it's value to **no**
-- Find the line containing `PubkeyAuthentication` and ensure it's value is set to **yes**
-- Find the line containing `ChallengeResponseAuthentication` and ensure it's value is set to **no**
-
-Save your changes and close the file
-
-- `CTRL + X`
-- `Y`
-- `ENTER`
-
-While still logged in as `root`, open a new terminal window and test logging in as `pi` and verify that the public key authentication works
-
-```shell
-ssh pi@your_server_ip
-```
-
 ### Add environment variables
 
 Many Docker containers require similar settings, such as timezones and application directories. To save us from having to type these values multiple times, we will set them as environment variables instead and use them in our `docker-compose.yml` file. We will need to reboot the VPS again after setting these variables.
