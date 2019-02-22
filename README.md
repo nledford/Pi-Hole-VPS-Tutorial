@@ -153,20 +153,20 @@ If you are using Ubuntu 18.04 or greater, you will need to disable `systemd-reso
 
 Run the following commands to disable `systemd-resolved`:
 
-```
+```console
 sudo systemctl disable --now systemd-resolved.service
 sudo rm /etc/resolv.conf
 ```
 
 Now create your own `resolv.conf` file:
 
-```
+```console
 sudo nano /etc/resolv.conf
 ```
 
 And add the following lines:
 
-```
+```shell
 nameserver 127.0.0.1
 nameserver 9.9.9.9
 ```
@@ -182,13 +182,13 @@ Docker provides a bash script that we can use to automate the entire installatio
 
 Go to your temporary directory:
 
-```
+```console
 cd /tmp
 ```
 
 And run the following command to install Docker:
 
-```
+```console
 curl -fsSL get.docker.com -o get-docker.sh && sh get-docker.sh
 ```
 
@@ -198,13 +198,13 @@ Running docker containers requries `sudo` privileges. To avoid needing `sudo` fo
 
 To add the `pi` user to the `docker` group, use the following command:
 
-```shell
+```console
 sudo usermod -aG docker ${USER}
 ```
 
 Log out of your VPS and log back in as the `pi` user. `pi` should now be part of the `docker` group. To test this, and to test that Docker has been successfully installed, run the following command:
 
-```
+```console
 docker run hello-world
 ```
 
@@ -214,15 +214,15 @@ There are multiple options for installing Docker Compose, including installing i
 
 Be sure to check the [release page](https://github.com/docker/compose/releases) and ensure you run the following command with the most recent release.
 
-Download `docker-compose`:
+To download Docker Compose, run the following command:
 
-```
+```console
 sudo curl -L "https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 ```
 
 Apply executable permissions:
 
-```
+```console
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
