@@ -128,17 +128,21 @@ sudo ufw default allow outgoing
 # Open ports for OpenSSH
 sudo ufw allow OpenSSH
 
-# Optionally, allow all access from your IP Address
-sudo ufw allow from $yourIPAddress
-
 # Open ports for secure FTP
 sudo ufw allow sftp
+
+# Open ports for Pi-Hole Web interface
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
 
 # Open port for Wireguard
 sudo ufw allow 51820/udp
 
 # Open ports for Mosh if you installed it
 sudo ufw allow mosh
+
+# Optionally, allow all access from your IP Address
+sudo ufw allow from $yourIPAddress
 ```
 
 Enable `ufw`:
