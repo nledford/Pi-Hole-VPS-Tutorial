@@ -342,7 +342,7 @@ Now it is time to download and launch your containers. Keep in mind that it migh
 
 Use the following command to launch your containers:
 
-```
+```console
 docker-compose -f ~/docker/docker-compose.yml up -d
 ```
 
@@ -352,7 +352,7 @@ TODO add brief explaination about Wireguard and why it is being used
 
 To install Wireguard, run the following commands:
 
-```
+```console
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt update
 sudo apt install wireguard
@@ -360,41 +360,37 @@ sudo apt install wireguard
 
 ### Private and public keys
 
-Next, we will set up the public and private keys on the VPS. Go to `pi`'s home directory:
+Next, we will set up the public and private keys on the VPS.
 
-```
-cd ~/
-```
+Create a folder in `pi`'s home directory to hold Wireguard's public and private keys:
 
-Create a folder to hold Wireguard's public and private keys:
-
-```
-mkdir wgkeys
+```console
+mkdir ~/wgkeys
 ```
 
 Create public and private keys for the VPS:
 
-```
+```console
 wg genkey > server_private.key 
 wg pubkey > server_public.key < server_private.key
 ```
 
 Create public and private keys for a client (e.g., your phone or tablet):
 
-```
+```console
 wg genkey > client1_private.key
 wg pubkey > client1_public.key < client1_private.key 
 ```
 
 Run `ls` and ensure you have four files in the `~/wgkeys` directory (`client1` being whatever you named the client):
 
-```
+```console
 client1_private.key client1_public.key server_private.key server_public.key
 ```
 
 Use `cat` to get the value of the VPS's private key and your client's publc key. We will need it in the next step.
 
-```
+```console
 cat server_private.key
 cat client1_public.key
 ```
@@ -403,13 +399,13 @@ cat client1_public.key
 
 Create a file called `wg0.conf`:
 
-```
+```console
 sudo nano /etc/wireguard/wg0.conf
 ```
 
 Add the following block of code:
 
-```
+```shell
 [Interface]
 Address = 192.168.37.1/24
 ListenPort = 51820
@@ -430,13 +426,13 @@ Save and close the file.
 
 Start Wireguard with the `wg-quick` command:
 
-```
+```console
 sudo wg-quick up wg0
 ```
 
 You should see something similar to the output below:
 
-```
+```console
 [#] ip link add wg0 type wireguard
 [#] wg setconf wg0 /dev/fd/63
 [#] ip address add 192.168.37.1/24 dev wg0
@@ -446,7 +442,7 @@ You should see something similar to the output below:
 
 Use `sudo wg` to confirm Wireguard is working. You should see something similar to the output below:
 
-```
+```console
 interface: wg0
 public key: Aj2HHAutB2U0O56jJBdkZ/xgb9pnmUPJ0IeiuACLLmI=
 private key: (hidden)
@@ -458,7 +454,7 @@ allowed ips: 192.168.99.2/32
 
 Finally, configure Wireguard to launch at start-up:
 
-```
+```console
 sudo systemctl enable wg-quick@wg0 
 ```
 
