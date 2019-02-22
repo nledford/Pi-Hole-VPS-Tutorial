@@ -120,9 +120,7 @@ We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%2
 
 To set up `ufw`, enter the following commands:
 
-TODO: Add rules for Wireguard
-
-```shell
+```console
 # Apply basic defaults
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
@@ -135,6 +133,9 @@ sudo ufw allow from $yourIPAddress
 
 # Open ports for secure FTP
 sudo ufw allow sftp
+
+# Open port for Wireguard
+sudo ufw allow 51820/udp
 
 # Open ports for Mosh if you installed it
 sudo ufw allow mosh
