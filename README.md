@@ -31,7 +31,7 @@ When you have your server's IP address and root passphrase, log into the server 
 ssh root@your_server_ip
 ```
 
-If you are not asked to create a new passphrase, use the `passwd` command to generate a new one. Although we will be disabling password authentication, be sure to create or [generate](http://passwordsgenerator.net/) a secure passphrase anyway.
+**If you are not asked to create a new passphrase, use the `passwd` command to generate a new one.** Although we will be disabling password authentication, be sure to create or [generate](http://passwordsgenerator.net/) a secure passphrase anyway.
 
 ### Update VPS
 
