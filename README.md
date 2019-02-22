@@ -106,7 +106,7 @@ sudo reboot
 
 [**Mosh**](https://mosh.org/), or **mo**bile **sh**ell, is a remote terminal application that allows roaming and intermittent connectivity. It's intended as a replacement for SSH but both can be used on the same server.
 
-```
+```console
 # Update your sources, if necessary
 sudo apt update
 
