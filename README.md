@@ -141,6 +141,12 @@ sudo ufw allow 51820/udp
 sudo ufw allow mosh
 ```
 
+Enable `ufw`:
+
+```console
+sudo ufw enable
+```
+
 ### Disable `systemd-resolved`
 
 If you are using Ubuntu 18.04 or greater, you will need to disable `systemd-resolved` before installing any software, specifically Pi-Hole.
