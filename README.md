@@ -316,6 +316,22 @@ pihole:
     restart: unless-stopped
 ```
 
+### (Optional) Set up reverse proxy
+
+If you have a domain name that you plan on using to access the Pi-Hole web interface, you'll need to set up a reverse proxy so that you can access the Pi-Hole container. Just add the following block of code to your config file:
+
+```yaml
+  applist:
+    image: jwilder/nginx-proxy
+    ports:
+      - 80:80
+    environment:
+      DEFAULT_HOST: example.com
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+```
+
 ### **Watchtower**
 
 The final service we will add is Watchtower. Watchtower will monitor your other containers and automatically update them if needed.
