@@ -84,7 +84,7 @@ WEB_PASSWORD=myawesomepassphrase    # Your passphrase for the Pi-Hole web interf
 INTERFACE=eth0                      # Set to the main interface on your VPS
 ```
 
-If you don't know what the main interface on your VPS, you can quickly find it using `ip`:
+Not every VPS provider will have `eth0` as the main interface. **Vultr**, for example, commonly has `ens3` as the main interface. If you don't know what the main interface on your VPS, you can quickly find it using `ip`:
 
 ```console
 ip route | grep default
