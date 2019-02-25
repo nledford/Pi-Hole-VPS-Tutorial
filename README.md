@@ -497,6 +497,8 @@ Finally, I would suggest following [this guide](https://docs.pi-hole.net/guides/
 
 ## Let's Encrypt
 
+TODO rewrite instructions to use https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion
+
 The following section is optional and **requires you to have your own domain name**, but it will configure your Pi-Hole's web interface to use `https` courtesy of [Let's Encrypt](https://letsencrypt.org/) and [Certbot](https://certbot.eff.org/). It can be considered overkill just for Pi-Hole, but it certainly doesn't hurt. First we will acquire the certificate and then we will configure `lighttdp` to automatically redirect any `http` requests to `https`. The steps are based on [this reddit post](https://www.reddit.com/r/pihole/comments/6e2jyr/self_signed_ssl_cert_for_the_admin_login_page/di7ct0b).
 
 ### Acquiring the certificate
