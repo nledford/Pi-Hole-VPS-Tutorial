@@ -327,12 +327,13 @@ pihole:
 If you have a domain name that you plan on using to access the Pi-Hole web interface, you'll need to set up a reverse proxy so that you can access the Pi-Hole container. Just add the following block of code to your config file:
 
 ```yaml
-  applist:
+  nginx-proxy:
+    container_name: nginx-proxy
     image: jwilder/nginx-proxy
     ports:
       - 80:80
     environment:
-      DEFAULT_HOST: example.com
+      DEFAULT_HOST: example.com   # Replace with your domain name
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     restart: always
