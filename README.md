@@ -168,7 +168,7 @@ Now create your own `resolv.conf` file:
 sudo nano /etc/resolv.conf
 ```
 
-Your first name server should be `127.0.0.1` so that your VPS will use the Pi-Hole once it is available. We need to add a public DNS server so that we can still install and update software. You can remove the public DNS server once Pi-Hole is running, but it isn't necessary. I'm using [Quad9](https://www.quad9.net/) in the example below, but you can replace with any public DNS server you want (e.g., Google `8.8.8.8` or Cloudflare `1.1.1.1`).
+Your first name server should be `127.0.0.1` so that your VPS will use the Pi-Hole once it is available. We need to add a public DNS server so that we can still install and update software. You can remove the public DNS server once Pi-Hole is running, but it isn't necessary. I'm using [Quad9](https://www.quad9.net/) in the example below, but you can replace with any public DNS server you want (e.g., Google: `8.8.8.8` or Cloudflare: `1.1.1.1`).
 
 Add the following lines to `resolv.conf`:
 
