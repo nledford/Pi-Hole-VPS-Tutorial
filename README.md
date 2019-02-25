@@ -116,7 +116,7 @@ sudo apt install mosh
 
 ### Set up **`ufw`**
 
-We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the VPS. Specifically, we want to ensure that only ports needed for our applications. Additional ports can be opened later depending on your specific needs.
+We will set up a basic firewall, [`ufw`](https://wiki.debian.org/Uncomplicated%20Firewall%20%28ufw%29), that will restrict access to certain services on the VPS. Specifically, we want to ensure that only ports needed for our applications. Additional ports can be opened later depending on your specific needs. We **do not** want to open port 53 for DNS because it would leave us vulnerable to a [DNS Amplification Attack](https://www.cloudflare.com/learning/ddos/dns-amplification-ddos-attack/).
 
 To set up `ufw`, enter the following commands:
 
