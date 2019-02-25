@@ -368,6 +368,10 @@ docker-compose -f ~/docker/docker-compose.yml up -d
 
 ## Install Wireguard
 
+TODO Update instructions from these tutorials:
+ - https://blog.morad-edwar.com/your-own-wireguard-vpn-server-in-5-minutes/
+ - https://technofaq.org/posts/2017/10/how-to-setup-wireguard-vpn-on-your-debian-gnulinux-server-with-ipv6-support/
+
 TODO add brief explaination about Wireguard and why it is being used
 
 To install Wireguard, run the following commands:
