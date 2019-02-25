@@ -255,7 +255,7 @@ nano ~/docker/docker-compose.yml
 And add the following two lines:
 
 ```yaml
-version: "3.6"
+version: "3.7"
 services:
 ```
 
