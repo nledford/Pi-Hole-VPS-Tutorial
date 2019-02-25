@@ -357,10 +357,6 @@ Add the following block to your `docker-compose.yml`:
 
 ### Launch containers
 
-TODO add alias for `docker-compose`
-
-TODO explain what the tags are
-
 Now it is time to download and launch your containers. Keep in mind that it might take a few minutes for the containers to download and configure themselves. Pi-Hole, for example, will need to download the default blocklists when launched.
 
 Use the following command to launch your containers:
