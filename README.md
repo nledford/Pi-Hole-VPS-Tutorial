@@ -266,7 +266,7 @@ The first service we will add is `unbound`. There are many Docker containers for
 Add the following lines to your `docker-compose.yml` file, after the `services:` line:
 
 ```yaml
-version: "3.6"
+version: "3.7"
 services:
 
   unbound:
