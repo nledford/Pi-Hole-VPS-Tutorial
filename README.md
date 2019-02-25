@@ -310,7 +310,7 @@ pihole:
       TZ: ${TZ}
       WEBPASSWORD: ${WEB_PASSWORD}
       DNS1: 127.0.0.1#5053
-      DNS2: "no"
+      DNS2: ::1#5053
       INTERFACE: ${INTERFACE}
       ServerIP: ${SERVER_IP}
       # ServerIPV6: ${SERVER_IPV6}      # Enable these lines for IPv6
