@@ -341,7 +341,7 @@ If you have a domain name that you plan on using to access the Pi-Hole web inter
 
 ### **Watchtower**
 
-The final service we will add is Watchtower. Watchtower will monitor your other containers and automatically update them if needed.
+The final service we will add is Watchtower. Watchtower will monitor your other containers and automatically update them if needed. The `schedule` option will determine how often to check for updates using [Cron expressions](https://godoc.org/github.com/robfig/cron#hdr-CRON_Expression_Format). Alternatively you can use the `--interval` option to have it check for updates every `n` seconds.
 
 Add the following block to your `docker-compose.yml`:
 
@@ -351,7 +351,7 @@ Add the following block to your `docker-compose.yml`:
     image: v2tec/watchtower:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 3600
+    command: --schedule "0 0 0 * * 0"                 # weekly every Sat/Sun at midnight
     restart: unless-stopped
 ```
 
