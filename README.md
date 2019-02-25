@@ -390,6 +390,7 @@ Create a folder in `pi`'s home directory to hold Wireguard's public and private 
 
 ```console
 mkdir ~/wgkeys
+cd ~/wgkeys
 ```
 
 Create public and private keys for the VPS:
