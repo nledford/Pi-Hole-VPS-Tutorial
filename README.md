@@ -153,7 +153,7 @@ sudo ufw enable
 
 ### Disable `systemd-resolved`
 
-If you are using Ubuntu 18.04 or greater, you will need to disable `systemd-resolved` before installing any software, specifically Pi-Hole.
+If you are using Ubuntu 18.04 or greater, you will need to disable `systemd-resolved` before installing any software, specifically Pi-Hole. After disabling the service, we'll add our own `resolv.conf` configuration file. 
 
 Run the following commands to disable `systemd-resolved`:
 
@@ -168,7 +168,9 @@ Now create your own `resolv.conf` file:
 sudo nano /etc/resolv.conf
 ```
 
-And add the following lines:
+Your first name server should be `127.0.0.1` so that your VPS will use the Pi-Hole once it is available. We need to add a public DNS server so that we can still install and update software. You can remove the public DNS server once Pi-Hole is running, but it isn't necessary. I'm using [Quad9](https://www.quad9.net/) in the example below, but you can replace with any public DNS server you want (e.g., Google `8.8.8.8` or Cloudflare `1.1.1.1`).
+
+Add the following lines to `resolv.conf`:
 
 ```shell
 nameserver 127.0.0.1
